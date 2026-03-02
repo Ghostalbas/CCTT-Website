@@ -8,9 +8,17 @@ const Footer = () => {
             <div className="container">
                 <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))', gap: '3rem', marginBottom: '4rem' }}>
                     <div>
-                        <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', fontWeight: 800, fontSize: '1.5rem', marginBottom: '1.5rem', color: 'white' }}>
-                            <Snowflake size={28} color="var(--brand-blue-main)" />
-                            <span>CCTT</span>
+                        <div style={{ marginBottom: '1.5rem' }}>
+                            <img
+                                src="/images/company_logo.jpeg"
+                                alt="CCTT Logo"
+                                style={{
+                                    height: '50px',
+                                    width: 'auto',
+                                    borderRadius: '4px',
+                                    objectFit: 'contain'
+                                }}
+                            />
                         </div>
                         <p style={{ color: 'rgba(255,255,255,0.7)', lineHeight: '1.6', marginBottom: '1.5rem' }}>
                             Ensuring cold chain integrity across South Africa. Specializing in temperature tracking and legal compliance for grocery retail and refrigerated transport.

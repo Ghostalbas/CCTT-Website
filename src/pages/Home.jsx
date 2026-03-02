@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Shield, Zap, Globe, ArrowRight, CheckCircle2 } from 'lucide-react';
+import { Shield, Zap, Globe, ArrowRight, CheckCircle2, Activity } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
 const Home = () => {
@@ -102,7 +102,7 @@ const Home = () => {
             </section>
 
             {/* Sub-Hero / Product Preview */}
-            <section style={{ padding: '6rem 0', background: 'linear-gradient(rgba(15, 23, 42, 0.95), rgba(15, 23, 42, 0.95)), url("/images/compliance_dashboard_preview.png")', backgroundSize: 'cover', backgroundAttachment: 'fixed', color: 'white' }}>
+            <section style={{ padding: '6rem 0', background: 'linear-gradient(rgba(15, 23, 42, 0.95), rgba(15, 23, 42, 0.95)), url("/images/website_dashboard_preview.png")', backgroundSize: 'cover', backgroundAttachment: 'fixed', color: 'white' }}>
                 <div className="container">
                     <div style={{ display: 'flex', alignItems: 'center', gap: '4rem', flexWrap: 'wrap' }}>
                         <div style={{ flex: '1 1 500px' }}>
@@ -122,11 +122,59 @@ const Home = () => {
                                 </li>
                             </ul>
                         </div>
-                        <div style={{ flex: '1 1 400px' }}>
-                            <img
-                                src="/images/compliance_dashboard_preview.png"
-                                alt="CCTT Compliance Dashboard"
-                                style={{ width: '100%', borderRadius: 'var(--radius-lg)', boxShadow: '0 20px 50px rgba(0,0,0,0.5)', border: '1px solid rgba(255,255,255,0.1)' }}
+                        <div style={{ flex: '1 1 500px', cursor: 'pointer', position: 'relative' }}>
+                            {/* Hover Hint */}
+                            <motion.div
+                                initial={{ opacity: 0.8, y: 0 }}
+                                animate={{
+                                    opacity: [0.4, 0.8, 0.4],
+                                    y: [0, -5, 0],
+                                }}
+                                transition={{
+                                    duration: 2,
+                                    repeat: Infinity,
+                                    ease: "easeInOut"
+                                }}
+                                whileHover={{ opacity: 0 }}
+                                style={{
+                                    position: 'absolute',
+                                    top: '-4rem',
+                                    right: '0',
+                                    background: 'var(--brand-blue-main)',
+                                    color: 'white',
+                                    padding: '0.75rem 2rem',
+                                    borderRadius: 'var(--radius-full)',
+                                    fontSize: '1.2rem',
+                                    fontWeight: '700',
+                                    boxShadow: '0 8px 24px rgba(0,0,0,0.3)',
+                                    zIndex: 5,
+                                    pointerEvents: 'none',
+                                    display: 'flex',
+                                    alignItems: 'center',
+                                    gap: '0.75rem'
+                                }}
+                            >
+                                <Activity size={20} /> Hover to Expand View
+                            </motion.div>
+
+                            <motion.img
+                                src="/images/website_dashboard_preview.png"
+                                alt="CCTT Dashboard"
+                                whileHover={{
+                                    scale: 1.8,
+                                    zIndex: 50,
+                                    boxShadow: '0 50px 100px rgba(0,0,0,0.8)',
+                                    transition: { duration: 0.3, ease: 'easeOut' }
+                                }}
+                                style={{
+                                    width: '100%',
+                                    borderRadius: 'var(--radius-lg)',
+                                    boxShadow: '0 20px 50px rgba(0,0,0,0.5)',
+                                    border: '1px solid rgba(255,255,255,0.1)',
+                                    display: 'block',
+                                    position: 'relative',
+                                    transformOrigin: 'center center'
+                                }}
                             />
                         </div>
                     </div>

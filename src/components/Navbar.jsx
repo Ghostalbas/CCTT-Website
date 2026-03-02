@@ -38,11 +38,17 @@ const Navbar = () => {
             transition: 'all 0.3s ease'
         }}>
             <div className="container" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-                <NavLink to="/" style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', fontWeight: 800, fontSize: '1.5rem', color: logoColor, transition: 'color 0.3s ease' }}>
-                    <div style={{ background: 'var(--brand-blue-dark)', color: 'white', padding: '0.4rem', borderRadius: '0.5rem', display: 'flex' }}>
-                        <Snowflake size={24} />
-                    </div>
-                    <span>CCTT</span>
+                <NavLink to="/" style={{ display: 'flex', alignItems: 'center' }}>
+                    <img
+                        src="/images/company_logo.jpeg"
+                        alt="CCTT Logo"
+                        style={{
+                            height: '45px',
+                            width: 'auto',
+                            borderRadius: '4px',
+                            objectFit: 'contain'
+                        }}
+                    />
                 </NavLink>
 
                 {/* Desktop Links */}
