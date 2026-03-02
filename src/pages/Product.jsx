@@ -12,8 +12,8 @@ const Product = () => {
     }, []);
 
     const hardwareSpecs = [
-        { label: 'Temp Range', value: '-40°C to +85°C' },
-        { label: 'Accuracy', value: '±0.1°C' },
+        { label: 'Temp Range', value: '-55°C to +90°C' },
+        { label: 'Accuracy', value: '±0.5°C' },
         { label: 'Battery Life', value: '5 Years (Replaceable)' },
         { label: 'Connectivity', value: '5G' }
     ];
