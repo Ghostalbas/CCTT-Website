@@ -137,3 +137,49 @@ button {
 .section-padding {
   padding: 5rem 0;
 }
+
+/* Responsive Breakpoints */
+@media (max-width: 1024px) {
+  .section-padding {
+    padding: 4rem 0;
+  }
+}
+
+@media (max-width: 768px) {
+  .section-padding {
+    padding: 3rem 0;
+  }
+
+  h1 {
+    font-size: 2.5rem !important;
+  }
+
+  h2 {
+    font-size: 2rem !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .container {
+    padding: 0 1rem;
+  }
+
+  .section-padding {
+    padding: 2.5rem 0;
+  }
+}
+
+/* Visibility Utilities */
+.mobile-only {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .mobile-only {
+    display: block;
+  }
+
+  .desktop-only {
+    display: none;
+  }
+}

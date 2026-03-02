@@ -4,6 +4,14 @@ import { Shield, Zap, Globe, ArrowRight, CheckCircle2, Activity } from 'lucide-r
 import { Link } from 'react-router-dom';
 
 const Home = () => {
+    const [isMobile, setIsMobile] = React.useState(window.innerWidth < 768);
+
+    React.useEffect(() => {
+        const handleResize = () => setIsMobile(window.innerWidth < 768);
+        window.addEventListener('resize', handleResize);
+        return () => window.removeEventListener('resize', handleResize);
+    }, []);
+
     const features = [
         {
             title: 'National Coverage',
@@ -26,12 +34,13 @@ const Home = () => {
         <div className="home-page">
             {/* Hero Section */}
             <section style={{
-                height: '90vh',
+                minHeight: isMobile ? '80vh' : '90vh',
                 display: 'flex',
                 alignItems: 'center',
                 position: 'relative',
                 overflow: 'hidden',
-                background: 'linear-gradient(135deg, var(--brand-navy) 0%, var(--brand-blue-dark) 100%)'
+                background: 'linear-gradient(135deg, var(--brand-navy) 0%, var(--brand-blue-dark) 100%)',
+                padding: isMobile ? '6rem 0' : '0'
             }}>
 
                 <div className="container" style={{ position: 'relative', zIndex: 10 }}>
@@ -124,43 +133,45 @@ const Home = () => {
                         </div>
                         <div style={{ flex: '1 1 500px', cursor: 'pointer', position: 'relative' }}>
                             {/* Hover Hint */}
-                            <motion.div
-                                initial={{ opacity: 0.8, y: 0 }}
-                                animate={{
-                                    opacity: [0.4, 0.8, 0.4],
-                                    y: [0, -5, 0],
-                                }}
-                                transition={{
-                                    duration: 2,
-                                    repeat: Infinity,
-                                    ease: "easeInOut"
-                                }}
-                                whileHover={{ opacity: 0 }}
-                                style={{
-                                    position: 'absolute',
-                                    top: '-4rem',
-                                    right: '0',
-                                    background: 'var(--brand-blue-main)',
-                                    color: 'white',
-                                    padding: '0.75rem 2rem',
-                                    borderRadius: 'var(--radius-full)',
-                                    fontSize: '1.2rem',
-                                    fontWeight: '700',
-                                    boxShadow: '0 8px 24px rgba(0,0,0,0.3)',
-                                    zIndex: 5,
-                                    pointerEvents: 'none',
-                                    display: 'flex',
-                                    alignItems: 'center',
-                                    gap: '0.75rem'
-                                }}
-                            >
-                                <Activity size={20} /> Hover to Expand View
-                            </motion.div>
+                            {!isMobile && (
+                                <motion.div
+                                    initial={{ opacity: 0.8, y: 0 }}
+                                    animate={{
+                                        opacity: [0.4, 0.8, 0.4],
+                                        y: [0, -5, 0],
+                                    }}
+                                    transition={{
+                                        duration: 2,
+                                        repeat: Infinity,
+                                        ease: "easeInOut"
+                                    }}
+                                    whileHover={{ opacity: 0 }}
+                                    style={{
+                                        position: 'absolute',
+                                        top: '-4rem',
+                                        right: '0',
+                                        background: 'var(--brand-blue-main)',
+                                        color: 'white',
+                                        padding: '0.75rem 2rem',
+                                        borderRadius: 'var(--radius-full)',
+                                        fontSize: '1.2rem',
+                                        fontWeight: '700',
+                                        boxShadow: '0 8px 24px rgba(0,0,0,0.3)',
+                                        zIndex: 5,
+                                        pointerEvents: 'none',
+                                        display: 'flex',
+                                        alignItems: 'center',
+                                        gap: '0.75rem'
+                                    }}
+                                >
+                                    <Activity size={20} /> Hover to Expand View
+                                </motion.div>
+                            )}
 
                             <motion.img
                                 src="/images/website_dashboard_preview.png"
                                 alt="CCTT Dashboard"
-                                whileHover={{
+                                whileHover={isMobile ? {} : {
                                     scale: 1.8,
                                     zIndex: 50,
                                     boxShadow: '0 50px 100px rgba(0,0,0,0.8)',

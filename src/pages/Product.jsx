@@ -3,6 +3,14 @@ import { motion } from 'framer-motion';
 import { Layers, Activity, Database, Cpu, HardDrive, Share2, FileText, AlertCircle } from 'lucide-react';
 
 const Product = () => {
+    const [isMobile, setIsMobile] = React.useState(window.innerWidth < 768);
+
+    React.useEffect(() => {
+        const handleResize = () => setIsMobile(window.innerWidth < 768);
+        window.addEventListener('resize', handleResize);
+        return () => window.removeEventListener('resize', handleResize);
+    }, []);
+
     const hardwareSpecs = [
         { label: 'Temp Range', value: '-40°C to +85°C' },
         { label: 'Accuracy', value: '±0.1°C' },
@@ -22,13 +30,13 @@ const Product = () => {
             {/* Product Hero */}
             <section className="section-padding" style={{ background: 'var(--brand-gray-light)' }}>
                 <div className="container">
-                    <div style={{ display: 'flex', alignItems: 'center', gap: '4rem', flexWrap: 'wrap-reverse' }}>
+                    <div style={{ display: 'flex', alignItems: 'center', gap: isMobile ? '2rem' : '4rem', flexWrap: 'wrap-reverse' }}>
                         <motion.div
                             style={{ flex: '1 1 500px' }}
                             initial={{ opacity: 0, x: -30 }}
                             whileInView={{ opacity: 1, x: 0 }}
                         >
-                            <h1 style={{ fontSize: '3rem', marginBottom: '1.5rem' }}>Integrated <span className="text-gradient">Compliance Solutions</span></h1>
+                            <h1 style={{ fontSize: isMobile ? '2.25rem' : '3rem', marginBottom: '1.5rem' }}>Integrated <span className="text-gradient">Compliance Solutions</span></h1>
                             <p style={{ fontSize: '1.1rem', color: 'var(--brand-gray)', lineHeight: '1.8', marginBottom: '2rem' }}>
                                 CCTT provides a full-stack cold chain compliance solution. From rugged sensors designed for refrigerated trucks to the professional software platform that manages your legal temperature logs.
                             </p>
@@ -59,19 +67,82 @@ const Product = () => {
                         </p>
                     </div>
 
-                    <img
-                        src="/images/sa_grocery_cold_storage.png"
-                        alt="Retail Compliance Monitoring"
-                        style={{ width: '100%', borderRadius: 'var(--radius-lg)', boxShadow: 'var(--shadow-lg)', marginBottom: '4rem' }}
-                    />
+                    <div style={{ position: 'relative', marginBottom: '4rem', cursor: 'pointer' }}>
+                        {/* Hover Hint */}
+                        {!isMobile && (
+                            <motion.div
+                                initial={{ opacity: 0.8, y: 0 }}
+                                animate={{
+                                    opacity: [0.4, 0.8, 0.4],
+                                    y: [0, -5, 0],
+                                }}
+                                transition={{
+                                    duration: 2,
+                                    repeat: Infinity,
+                                    ease: "easeInOut"
+                                }}
+                                whileHover={{ opacity: 0 }}
+                                style={{
+                                    position: 'absolute',
+                                    top: '2rem',
+                                    right: '2rem',
+                                    background: 'var(--brand-blue-main)',
+                                    color: 'white',
+                                    padding: '0.75rem 2rem',
+                                    borderRadius: 'var(--radius-full)',
+                                    fontSize: '1.2rem',
+                                    fontWeight: '700',
+                                    boxShadow: '0 8px 24px rgba(0,0,0,0.3)',
+                                    zIndex: 5,
+                                    pointerEvents: 'none',
+                                    display: 'flex',
+                                    alignItems: 'center',
+                                    gap: '0.75rem'
+                                }}
+                            >
+                                <Activity size={20} /> Hover to Expand View
+                            </motion.div>
+                        )}
+
+                        <motion.img
+                            src="/images/sa_grocery_cold_storage.png"
+                            alt="Retail Compliance Monitoring"
+                            whileHover={isMobile ? {} : {
+                                scale: 1.2,
+                                zIndex: 50,
+                                boxShadow: '0 50px 100px rgba(0,0,0,0.8)',
+                                transition: { duration: 0.3, ease: 'easeOut' }
+                            }}
+                            style={{
+                                width: '100%',
+                                borderRadius: 'var(--radius-lg)',
+                                boxShadow: 'var(--shadow-lg)',
+                                position: 'relative',
+                                display: 'block'
+                            }}
+                        />
+                    </div>
 
                     <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))', gap: '2rem' }}>
                         {softwareFeatures.map((f, i) => (
-                            <div key={i} style={{ padding: '2rem', border: '1px solid #e2e8f0', borderRadius: 'var(--radius-md)', transition: 'border-color 0.3s', display: 'flex', flexDirection: 'column', height: '100%' }}>
+                            <motion.div
+                                key={i}
+                                whileHover={isMobile ? {} : { y: -10, boxShadow: 'var(--shadow-xl)', borderColor: 'var(--brand-blue-main)' }}
+                                style={{
+                                    padding: '2rem',
+                                    border: '1px solid #e2e8f0',
+                                    borderRadius: 'var(--radius-md)',
+                                    background: 'white',
+                                    transition: 'border-color 0.3s',
+                                    display: 'flex',
+                                    flexDirection: 'column',
+                                    height: '100%'
+                                }}
+                            >
                                 <div style={{ color: 'var(--brand-blue-dark)', marginBottom: '1rem' }}>{f.icon}</div>
                                 <h3 style={{ marginBottom: '0.5rem', fontSize: '1.25rem' }}>{f.title}</h3>
                                 <p style={{ color: 'var(--brand-gray)', fontSize: '0.95rem', lineHeight: '1.6' }}>{f.desc}</p>
-                            </div>
+                            </motion.div>
                         ))}
                     </div>
                 </div>

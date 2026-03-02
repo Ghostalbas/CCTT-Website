@@ -3,6 +3,14 @@ import { motion } from 'framer-motion';
 import { Mail, Phone, Send, User } from 'lucide-react';
 
 const Contact = () => {
+    const [isMobile, setIsMobile] = React.useState(window.innerWidth < 768);
+
+    React.useEffect(() => {
+        const handleResize = () => setIsMobile(window.innerWidth < 768);
+        window.addEventListener('resize', handleResize);
+        return () => window.removeEventListener('resize', handleResize);
+    }, []);
+
     const [formData, setFormData] = useState({
         name: '',
         email: '',
@@ -49,7 +57,7 @@ const Contact = () => {
     };
 
     return (
-        <div className="contact-page" style={{ paddingTop: '100px', minHeight: '100vh' }}>
+        <div className="contact-page" style={{ paddingTop: isMobile ? '80px' : '100px', minHeight: '100vh' }}>
             <div className="container">
                 <div style={{ display: 'flex', gap: '5rem', flexWrap: 'wrap', marginBottom: '5rem' }}>
                     {/* Contact Info */}
@@ -58,7 +66,7 @@ const Contact = () => {
                             initial={{ opacity: 0, y: 20 }}
                             animate={{ opacity: 1, y: 0 }}
                         >
-                            <h1 style={{ fontSize: '3rem', marginBottom: '1.5rem' }}>Let's <span className="text-gradient">Connect</span></h1>
+                            <h1 style={{ fontSize: isMobile ? '2.5rem' : '3rem', marginBottom: '1.5rem' }}>Let's <span className="text-gradient">Connect</span></h1>
                             <p style={{ fontSize: '1.1rem', color: 'var(--brand-gray)', marginBottom: '3rem', lineHeight: '1.8' }}>
                                 Our technical team is ready to assist you in designing the perfect tracking solution for your business.
                             </p>
@@ -110,7 +118,13 @@ const Contact = () => {
                     {/* Contact Form */}
                     <div style={{ flex: '1 1 500px' }}>
                         <motion.div
-                            style={{ background: 'white', padding: '3rem', borderRadius: 'var(--radius-lg)', boxShadow: 'var(--shadow-lg)', border: '1px solid #e2e8f0' }}
+                            style={{
+                                background: 'white',
+                                padding: isMobile ? '1.5rem' : '3rem',
+                                borderRadius: 'var(--radius-lg)',
+                                boxShadow: 'var(--shadow-lg)',
+                                border: '1px solid #e2e8f0'
+                            }}
                             initial={{ opacity: 0, scale: 0.95 }}
                             animate={{ opacity: 1, scale: 1 }}
                         >
@@ -137,7 +151,7 @@ const Contact = () => {
                                 <>
                                     <h3 style={{ marginBottom: '2rem' }}>Send an Inquiry</h3>
                                     <form onSubmit={handleSubmit} style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem' }}>
-                                        <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1rem' }}>
+                                        <div style={{ display: 'grid', gridTemplateColumns: isMobile ? '1fr' : '1fr 1fr', gap: '1rem' }}>
                                             <div style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
                                                 <label style={{ fontSize: '0.9rem', fontWeight: '600' }}>Full Name</label>
                                                 <input

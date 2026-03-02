@@ -3,22 +3,42 @@ import { Snowflake, Mail, Phone, MapPin, Linkedin, Twitter } from 'lucide-react'
 import { Link } from 'react-router-dom';
 
 const Footer = () => {
+    const [isMobile, setIsMobile] = React.useState(window.innerWidth < 768);
+
+    React.useEffect(() => {
+        const handleResize = () => setIsMobile(window.innerWidth < 768);
+        window.addEventListener('resize', handleResize);
+        return () => window.removeEventListener('resize', handleResize);
+    }, []);
+
     return (
-        <footer style={{ background: 'var(--brand-navy)', color: 'white', padding: '5rem 0 2rem 0' }}>
+        <footer style={{ background: 'var(--brand-navy)', color: 'white', padding: isMobile ? '3rem 0 2rem 0' : '5rem 0 2rem 0' }}>
             <div className="container">
                 <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))', gap: '3rem', marginBottom: '4rem' }}>
                     <div>
-                        <div style={{ marginBottom: '1.5rem' }}>
+                        <div style={{
+                            display: 'flex',
+                            alignItems: 'center',
+                            fontWeight: 800,
+                            fontSize: '1.5rem',
+                            marginBottom: isMobile ? '1.5rem' : '0.1rem',
+                            marginLeft: isMobile ? '0' : '-50px',
+                            color: 'white',
+                            position: 'relative',
+                            justifyContent: isMobile ? 'flex-start' : 'flex-start'
+                        }}>
                             <img
-                                src="/images/company_logo.jpeg"
+                                src="/images/company_logo.png"
                                 alt="CCTT Logo"
                                 style={{
-                                    height: '50px',
+                                    height: isMobile ? '60px' : '80px',
                                     width: 'auto',
                                     borderRadius: '4px',
-                                    objectFit: 'contain'
+                                    objectFit: 'contain',
+                                    transform: isMobile ? 'none' : 'translateY(12px)'
                                 }}
                             />
+                            <span style={{ marginLeft: '-38px', zIndex: 1, textShadow: '0 2px 4px rgba(0,0,0,0.2)' }}>CCTT</span>
                         </div>
                         <p style={{ color: 'rgba(255,255,255,0.7)', lineHeight: '1.6', marginBottom: '1.5rem' }}>
                             Ensuring cold chain integrity across South Africa. Specializing in temperature tracking and legal compliance for grocery retail and refrigerated transport.
