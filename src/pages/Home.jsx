@@ -121,13 +121,13 @@ const Home = () => {
                             </p>
                             <ul style={{ listStyle: 'none', display: 'flex', flexDirection: 'column', gap: '1rem' }}>
                                 <li style={{ display: 'flex', alignItems: 'center', gap: '1rem' }}>
-                                    <CheckCircle2 color="var(--brand-blue-main)" /> <span>Legal Temperature Cycle Logging</span>
+                                    <CheckCircle2 color="var(--brand-blue-main)" /> <span>Temperature Cycle Logging</span>
                                 </li>
                                 <li style={{ display: 'flex', alignItems: 'center', gap: '1rem' }}>
-                                    <CheckCircle2 color="var(--brand-blue-main)" /> <span>Instant Fridge & Truck Alerts</span>
+                                    <CheckCircle2 color="var(--brand-blue-main)" /> <span>Instant Temperature Deviation Alerts</span>
                                 </li>
                                 <li style={{ display: 'flex', alignItems: 'center', gap: '1rem' }}>
-                                    <CheckCircle2 color="var(--brand-blue-main)" /> <span>Automated Monthly Compliance Reports</span>
+                                    <CheckCircle2 color="var(--brand-blue-main)" /> <span>Automated Reporting</span>
                                 </li>
                             </ul>
                         </div>

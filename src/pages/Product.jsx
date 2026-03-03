@@ -19,9 +19,9 @@ const Product = () => {
     ];
 
     const softwareFeatures = [
-        { title: 'Compliance Dashboard', icon: <Activity />, desc: 'Real-time temperature telemetry with automated retail fridge logging.' },
-        { title: 'South African Legal Logs', icon: <Database />, desc: 'Secure, legally-compliant data storage accessible for inspection anywhere.' },
-        { title: 'Automated Cycle Reports', icon: <FileText />, desc: 'Generate temperature cycle reports for trucks and freezers required by SA law.' },
+        { title: 'Dashboard', icon: <Activity />, desc: 'Real-time temperature telemetry with automated logging.' },
+        { title: 'Always Online', icon: <Database />, desc: 'Data tracking accessible for inspection anywhere anytime.' },
+        { title: 'Automated Reporting', icon: <FileText />, desc: 'Generate temperature cycle reports for trucks and freezers.' },
         { title: 'Real-Time Alerts', icon: <AlertCircle />, desc: 'Receive instant notifications when temperatures deviate from acceptable ranges.' }
     ];
 
@@ -36,9 +36,9 @@ const Product = () => {
                             initial={{ opacity: 0, x: -30 }}
                             whileInView={{ opacity: 1, x: 0 }}
                         >
-                            <h1 style={{ fontSize: isMobile ? '2.25rem' : '3rem', marginBottom: '1.5rem' }}>Integrated <span className="text-gradient">Compliance Solutions</span></h1>
+                            <h1 style={{ fontSize: isMobile ? '2.25rem' : '3rem', marginBottom: '1.5rem' }}>Integrated <span className="text-gradient">Solutions</span></h1>
                             <p style={{ fontSize: '1.1rem', color: 'var(--brand-gray)', lineHeight: '1.8', marginBottom: '2rem' }}>
-                                CCTT provides a full-stack cold chain compliance solution. From rugged sensors designed for refrigerated trucks to the professional software platform that manages your legal temperature logs.
+                                CCTT provides a full-stack cold chain solution. From rugged sensors designed for refrigerated trucks to the professional software platform that manages your temperature logs.
                             </p>
 
                             <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1.5rem' }}>
@@ -61,9 +61,9 @@ const Product = () => {
             <section className="section-padding">
                 <div className="container">
                     <div style={{ textAlign: 'center', marginBottom: '4rem' }}>
-                        <h2 style={{ fontSize: '2.5rem', marginBottom: '1rem' }}>The Compliance Platform</h2>
+                        <h2 style={{ fontSize: '2.5rem', marginBottom: '1rem' }}>The Platform</h2>
                         <p style={{ color: 'var(--brand-gray)', fontSize: '1.1rem', maxWidth: '700px', margin: '0 auto' }}>
-                            A centralized hub for all your cold storage data. Meet South African documentation requirements with ease.
+                            A centralized hub for all your cold storage chain temperature data. Meet documentation requirements with ease.
                         </p>
                     </div>
 
