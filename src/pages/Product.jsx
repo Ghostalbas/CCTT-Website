@@ -67,52 +67,10 @@ const Product = () => {
                         </p>
                     </div>
 
-                    <div style={{ position: 'relative', marginBottom: '4rem', cursor: 'pointer' }}>
-                        {/* Hover Hint */}
-                        {!isMobile && (
-                            <motion.div
-                                initial={{ opacity: 0.8, y: 0 }}
-                                animate={{
-                                    opacity: [0.4, 0.8, 0.4],
-                                    y: [0, -5, 0],
-                                }}
-                                transition={{
-                                    duration: 2,
-                                    repeat: Infinity,
-                                    ease: "easeInOut"
-                                }}
-                                whileHover={{ opacity: 0 }}
-                                style={{
-                                    position: 'absolute',
-                                    top: '2rem',
-                                    right: '2rem',
-                                    background: 'var(--brand-blue-main)',
-                                    color: 'white',
-                                    padding: '0.75rem 2rem',
-                                    borderRadius: 'var(--radius-full)',
-                                    fontSize: '1.2rem',
-                                    fontWeight: '700',
-                                    boxShadow: '0 8px 24px rgba(0,0,0,0.3)',
-                                    zIndex: 5,
-                                    pointerEvents: 'none',
-                                    display: 'flex',
-                                    alignItems: 'center',
-                                    gap: '0.75rem'
-                                }}
-                            >
-                                <Activity size={20} /> Hover to Expand View
-                            </motion.div>
-                        )}
-
+                    <div style={{ position: 'relative', marginBottom: '4rem' }}>
                         <motion.img
                             src="/images/sa_grocery_cold_storage.png"
                             alt="Retail Compliance Monitoring"
-                            whileHover={isMobile ? {} : {
-                                scale: 1.2,
-                                zIndex: 50,
-                                boxShadow: '0 50px 100px rgba(0,0,0,0.8)',
-                                transition: { duration: 0.3, ease: 'easeOut' }
-                            }}
                             style={{
                                 width: '100%',
                                 borderRadius: 'var(--radius-lg)',
