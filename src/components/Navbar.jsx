@@ -29,12 +29,12 @@ const Navbar = () => {
     // Determine colors based on page and scroll status
     const isDarkBackground = isHomePage && !isScrolled && !isMenuOpen && !isMobile;
     const textColor = isDarkBackground ? 'white' : 'var(--brand-navy)';
-    const logoColor = isDarkBackground ? 'white' : 'var(--brand-blue-dark)';
     const navbarBg = (isScrolled || isMobile) ? 'rgba(255, 255, 255, 1)' : 'transparent';
 
     const navLinks = [
         { name: 'Home', path: '/' },
         { name: 'Product', path: '/product' },
+        { name: 'How It Works', path: '/how-it-works' },
         { name: 'Contact', path: '/contact' },
     ];
 
