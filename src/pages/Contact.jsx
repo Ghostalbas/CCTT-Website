@@ -69,7 +69,7 @@ const Contact = () => {
                                 {/* Sebastian */}
                                 <div style={{ background: 'var(--brand-gray-light)', padding: '1.5rem', borderRadius: 'var(--radius-md)', borderLeft: '4px solid var(--brand-blue-main)' }}>
                                     <div style={{ display: 'flex', alignItems: 'center', gap: '1rem', marginBottom: '1rem' }}>
-                                        <div style={{ background: 'var(--brand-blue-main)', color: 'white', padding: '0.5rem', borderRadius: '50%' }}>
+                                        <div style={{ background: 'var(--brand-blue-main)', color: 'white', width: '40px', height: '40px', borderRadius: '50%', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}>
                                             <User size={20} />
                                         </div>
                                         <h3 style={{ fontSize: '1.25rem' }}>Sebastian Tridente</h3>
@@ -89,7 +89,7 @@ const Contact = () => {
                                 {/* Carel */}
                                 <div style={{ background: 'var(--brand-gray-light)', padding: '1.5rem', borderRadius: 'var(--radius-md)', borderLeft: '4px solid var(--brand-blue-dark)' }}>
                                     <div style={{ display: 'flex', alignItems: 'center', gap: '1rem', marginBottom: '1rem' }}>
-                                        <div style={{ background: 'var(--brand-blue-dark)', color: 'white', padding: '0.5rem', borderRadius: '50%' }}>
+                                        <div style={{ background: 'var(--brand-blue-dark)', color: 'white', width: '40px', height: '40px', borderRadius: '50%', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}>
                                             <User size={20} />
                                         </div>
                                         <h3 style={{ fontSize: '1.25rem' }}>Carel Trichardt</h3>
