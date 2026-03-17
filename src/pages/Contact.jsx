@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Mail, Phone, Send, User } from 'lucide-react';
+import emailjs from '@emailjs/browser';
 
 const Contact = () => {
     const [isMobile, setIsMobile] = React.useState(window.innerWidth < 768);
@@ -23,30 +24,23 @@ const Contact = () => {
         e.preventDefault();
         setStatus('sending');
 
-        // IMPORTANT: Replace 'YOUR_FORMSPREE_ID' with your actual Form ID from formspree.io
-        const FORMSPREE_ID = 'mqedvkza';
-        const ENDPOINT = `https://formspree.io/f/${FORMSPREE_ID}`;
-
         try {
-            const response = await fetch(ENDPOINT, {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                    'Accept': 'application/json'
+            await emailjs.send(
+                import.meta.env.VITE_EMAILJS_SERVICE_ID,
+                import.meta.env.VITE_EMAILJS_TEMPLATE_ID,
+                {
+                    name: formData.name,
+                    email: formData.email,
+                    company: formData.company,
+                    message: formData.message,
                 },
-                body: JSON.stringify(formData)
-            });
+                import.meta.env.VITE_EMAILJS_PUBLIC_KEY
+            );
 
-            if (response.ok) {
-                setStatus('success');
-                setFormData({ name: '', email: '', company: '', message: '' });
-            } else {
-                const data = await response.json();
-                console.error('Formspree Error:', data);
-                setStatus('error');
-            }
+            setStatus('success');
+            setFormData({ name: '', email: '', company: '', message: '' });
         } catch (error) {
-            console.error('Submission Fetch Error:', error);
+            console.error('EmailJS Error:', error);
             setStatus('error');
         }
     };

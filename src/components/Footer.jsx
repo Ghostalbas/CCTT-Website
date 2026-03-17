@@ -50,6 +50,7 @@ const Footer = () => {
                         <ul style={{ listStyle: 'none', display: 'flex', flexDirection: 'column', gap: '0.75rem' }}>
                             <li><Link to="/" style={{ color: 'rgba(255,255,255,0.7)' }}>Home</Link></li>
                             <li><Link to="/product" style={{ color: 'rgba(255,255,255,0.7)' }}>Our Solution</Link></li>
+                            <li><Link to="/how-it-works" style={{ color: 'rgba(255,255,255,0.7)' }}>How It Works</Link></li>
                             <li><Link to="/contact" style={{ color: 'rgba(255,255,255,0.7)' }}>Contact Us</Link></li>
                         </ul>
                     </div>
