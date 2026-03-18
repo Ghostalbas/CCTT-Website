@@ -5,15 +5,17 @@
     right: 0;
     z-index: 1000;
     transition: all 0.3s ease;
-    padding: 1.5rem 0;
+    padding: 1.25rem 0;
 }
 
 .navbar.scrolled, .navbar.mobile {
-    background: rgba(255, 255, 255, 1);
-    padding: 0.75rem 0;
-    box-shadow: 0 4px 20px rgba(0,0,0,0.1);
-    border-bottom: 1px solid rgba(0,0,0,0.05);
+    background: var(--glass);
+    padding: 0.6rem 0;
+    box-shadow: var(--shadow-md);
+    border-bottom: 1px solid var(--border);
 }
+
+
 
 .navbar.scrolled {
     backdrop-filter: blur(12px);
@@ -48,14 +50,17 @@
 }
 
 .navbar:not(.dark-bg) .navbar-brand-text {
-    color: var(--brand-navy);
+    color: var(--text-main);
 }
+
 
 .nav-desktop {
     display: flex;
     gap: 2.5rem;
     align-items: center;
+    transform: translateY(-4px); /* Nudge up as requested */
 }
+
 
 .nav-link {
     font-weight: 600;
@@ -69,8 +74,9 @@
 }
 
 .navbar:not(.dark-bg) .nav-link {
-    color: var(--brand-navy);
+    color: var(--text-main);
 }
+
 
 .nav-link.active {
     color: var(--brand-blue-main) !important;
@@ -79,19 +85,22 @@
 .nav-desktop .btn-primary {
     padding: 0.6rem 1.2rem;
     font-size: 0.9rem;
+    transform: translateY(0); /* Reset or adjust if needed */
 }
+
 
 .nav-mobile-toggle {
     display: none;
-    color: white;
+    color: var(--brand-white);
     z-index: 1100;
-    background: var(--brand-navy);
+    background: var(--primary);
     padding: 0.65rem;
     border-radius: 12px;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    box-shadow: var(--shadow-md);
     transition: all 0.3s ease;
-    border: 1px solid rgba(255,255,255,0.1);
+    border: 1px solid var(--border);
 }
+
 
 /* Mobile Menu Drawer */
 .mobile-drawer {
@@ -101,21 +110,24 @@
     bottom: 0;
     width: 85%;
     max-width: 320px;
-    background: var(--brand-navy);
+    background: var(--background);
     z-index: 1050;
     box-shadow: -20px 0 40px rgba(0,0,0,0.3);
-    padding: 6rem 2.5rem 2.5rem 2.5rem;
+    padding: 2rem 1.5rem;
     display: flex;
     flex-direction: column;
-    gap: 2.25rem;
+    gap: 1.5rem;
+    border-left: 1px solid var(--border);
 }
+
 
 .mobile-nav-link {
     font-weight: 700;
-    color: white;
+    color: var(--text-main);
     font-size: 1.4rem;
     transition: color 0.3s ease;
 }
+
 
 .mobile-nav-link.active {
     color: var(--brand-blue-main) !important;

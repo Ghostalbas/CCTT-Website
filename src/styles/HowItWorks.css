@@ -3,11 +3,12 @@
 }
 
 .hero-section {
-    background: linear-gradient(180deg, var(--brand-gray-light) 0%, white 100%);
+    background: var(--background);
     text-align: center;
     position: relative;
     overflow: hidden;
 }
+
 
 /* Subtle background decorative element */
 .hero-section::before {
@@ -25,10 +26,11 @@
 .how-it-works-page .hero-title {
     font-size: 3.5rem;
     margin-bottom: 1.5rem;
-    color: var(--brand-navy);
+    color: var(--text-main);
     position: relative;
     z-index: 1;
 }
+
 
 .how-it-works-page .hero-title.mobile {
     font-size: 2.5rem;
@@ -36,7 +38,7 @@
 
 .how-it-works-page .hero-subtitle {
     font-size: 1.25rem;
-    color: var(--brand-gray);
+    color: var(--text-muted);
     max-width: 800px;
     margin: 0 auto;
     line-height: 1.6;
@@ -44,6 +46,7 @@
     position: relative;
     z-index: 1;
 }
+
 
 .steps-container {
     display: flex;
@@ -76,10 +79,12 @@
 }
 
 .step-card:hover {
-    background: white;
+    background: var(--card-bg);
     box-shadow: var(--shadow-lg);
     transform: translateX(10px);
+    border: 1px solid var(--border);
 }
+
 
 @media (max-width: 768px) {
     .step-card:hover {
@@ -100,12 +105,14 @@
     min-width: 100px;
     height: 100px;
     border-radius: 50%;
-    background: white;
+    background: var(--card-bg);
     display: flex;
     align-items: center;
     justify-content: center;
     box-shadow: var(--shadow-lg);
+    border: 1px solid var(--border);
 }
+
 
 .step-content {
     flex: 1;
@@ -115,15 +122,17 @@
 .step-title {
     font-size: 1.75rem;
     margin-bottom: 1rem;
-    color: var(--brand-navy);
+    color: var(--text-main);
 }
+
 
 .step-desc {
     font-size: 1.1rem;
-    color: var(--brand-gray);
+    color: var(--text-muted);
     line-height: 1.7;
     max-width: 700px;
 }
+
 
 .cta-section {
     background: var(--brand-navy);

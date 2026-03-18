@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { NavLink, useLocation } from 'react-router-dom';
 import { Snowflake, Menu, X } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
+import ThemeToggle from './ThemeToggle';
 import '../styles/Navbar.css';
 
 const Navbar = () => {
@@ -63,13 +64,17 @@ const Navbar = () => {
                         </NavLink>
                     </div>
 
-                    {/* Mobile Toggle */}
-                    <button
-                        onClick={() => setIsMenuOpen(!isMenuOpen)}
-                        className="nav-mobile-toggle"
-                    >
-                        {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
-                    </button>
+                    {/* Shared Controls (Toggle + Mobile Menu) */}
+                    <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', transform: 'translateY(-4px)' }}>
+                        <ThemeToggle />
+                        <button
+                            onClick={() => setIsMenuOpen(!isMenuOpen)}
+                            className="nav-mobile-toggle"
+                        >
+                            {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
+                        </button>
+                    </div>
+
                 </div>
             </nav>
 
@@ -83,6 +88,9 @@ const Navbar = () => {
                         transition={{ type: 'spring', damping: 25, stiffness: 200 }}
                         className="mobile-drawer"
                     >
+                        <div style={{ padding: '0.5rem', display: 'flex', justifyContent: 'flex-end', opacity: 0 }}>
+                             {/* Placeholder */}
+                        </div>
                         {navLinks.map((link) => (
                             <NavLink
                                 key={link.path}
@@ -104,6 +112,7 @@ const Navbar = () => {
                 )}
             </AnimatePresence>
 
+
             {/* Backdrop */}
             <AnimatePresence>
                 {isMenuOpen && (
@@ -119,5 +128,6 @@ const Navbar = () => {
         </>
     );
 };
+
 
 export default Navbar;

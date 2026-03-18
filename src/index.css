@@ -19,6 +19,11 @@
   --text-muted: var(--brand-gray);
   --glass: rgba(255, 255, 255, 0.7);
   --glass-dark: rgba(15, 23, 42, 0.8);
+  --card-bg: var(--brand-white);
+  --border: rgba(0, 0, 0, 0.1);
+  --hero-bg: linear-gradient(135deg, var(--brand-navy) 0%, var(--brand-blue-dark) 100%);
+  --hero-text: white;
+
 
   /* Typography */
   --font-primary: 'Outfit', sans-serif;
@@ -31,7 +36,30 @@
   --radius-md: 0.5rem;
   --radius-lg: 1rem;
   --radius-full: 9999px;
+
+  transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease, background 0.3s ease;
 }
+
+[data-theme='dark'] {
+  --primary: var(--brand-blue-main);
+  --secondary: var(--brand-blue-dark);
+  --accent: #1E293B;
+  --background: #020617;
+  --text-main: #F8FAFC;
+  --text-muted: #94A3B8;
+  --glass: rgba(15, 23, 42, 0.7);
+  --glass-dark: rgba(2, 12, 33, 0.8);
+  --card-bg: #1E293B;
+  --border: rgba(255, 255, 255, 0.1);
+  --hero-bg: linear-gradient(135deg, #020617 0%, #0F172A 100%);
+  --hero-text: #F8FAFC;
+
+  /* Overriding brand blues for better contrast in dark mode */
+  --brand-blue-dark: #38BDF8;
+  --brand-blue-main: #0EA5E9;
+}
+
+
 
 * {
   margin: 0;

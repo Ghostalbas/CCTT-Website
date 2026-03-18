@@ -3,8 +3,9 @@
 }
 
 .hero-bg-light {
-    background: var(--brand-gray-light);
+    background: var(--accent);
 }
+
 
 .product-hero-flex {
     display: flex;
@@ -32,10 +33,11 @@
 
 .product-description {
     font-size: 1.1rem;
-    color: var(--brand-gray);
+    color: var(--text-muted);
     line-height: 1.8;
     margin-bottom: 2rem;
 }
+
 
 .hardware-specs-grid {
     display: grid;
@@ -44,9 +46,10 @@
 }
 
 .spec-item {
-    border-bottom: 1px solid #e2e8f0;
+    border-bottom: 1px solid var(--border);
     padding-bottom: 0.5rem;
 }
+
 
 .spec-label {
     font-size: 0.85rem;
@@ -81,11 +84,12 @@
 }
 
 .platform-subtitle {
-    color: var(--brand-gray);
+    color: var(--text-muted);
     font-size: 1.1rem;
     max-width: 700px;
     margin: 0 auto;
 }
+
 
 .platform-image-wrapper {
     position: relative;
@@ -108,14 +112,15 @@
 
 .feature-card {
     padding: 2rem;
-    border: 1px solid #e2e8f0;
+    border: 1px solid var(--border);
     border-radius: var(--radius-md);
-    background: white;
+    background: var(--card-bg);
     transition: border-color 0.3s, y 0.3s, box-shadow 0.3s;
     display: flex;
     flex-direction: column;
     height: 100%;
 }
+
 
 .feature-icon-container {
     color: var(--brand-blue-dark);
@@ -128,7 +133,8 @@
 }
 
 .feature-desc {
-    color: var(--brand-gray);
+    color: var(--text-muted);
     font-size: 0.95rem;
     line-height: 1.6;
 }
+
