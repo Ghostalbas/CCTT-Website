@@ -1,6 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Layers, Activity, Database, Cpu, HardDrive, Share2, FileText, AlertCircle } from 'lucide-react';
+import '../styles/Product.css';
 
 const Product = () => {
     const [isMobile, setIsMobile] = React.useState(window.innerWidth < 768);
@@ -26,32 +27,32 @@ const Product = () => {
     ];
 
     return (
-        <div className="product-page" style={{ paddingTop: '80px' }}>
+        <div className="product-page">
             {/* Product Hero */}
-            <section className="section-padding" style={{ background: 'var(--brand-gray-light)' }}>
+            <section className="section-padding hero-bg-light">
                 <div className="container">
-                    <div style={{ display: 'flex', alignItems: 'center', gap: isMobile ? '2rem' : '4rem', flexWrap: 'wrap-reverse' }}>
+                    <div className={`product-hero-flex ${isMobile ? 'mobile' : ''}`}>
                         <motion.div
-                            style={{ flex: '1 1 500px' }}
+                            className="product-hero-text"
                             initial={{ opacity: 0, x: -30 }}
                             whileInView={{ opacity: 1, x: 0 }}
                         >
-                            <h1 style={{ fontSize: isMobile ? '2.25rem' : '3rem', marginBottom: '1.5rem' }}>Integrated <span className="text-gradient">Solutions</span></h1>
-                            <p style={{ fontSize: '1.1rem', color: 'var(--brand-gray)', lineHeight: '1.8', marginBottom: '2rem' }}>
+                            <h1 className={`product-title ${isMobile ? 'mobile' : ''}`}>Integrated <span className="text-gradient">Solutions</span></h1>
+                            <p className="product-description">
                                 CCTT provides a full-stack cold chain solution. From rugged sensors designed for refrigerated trucks to the professional software platform that manages your temperature logs.
                             </p>
 
-                            <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1.5rem' }}>
+                            <div className="hardware-specs-grid">
                                 {hardwareSpecs.map((spec, idx) => (
-                                    <div key={idx} style={{ borderBottom: '1px solid #e2e8f0', paddingBottom: '0.5rem' }}>
-                                        <p style={{ fontSize: '0.85rem', color: 'var(--brand-blue-main)', fontWeight: '700', textTransform: 'uppercase' }}>{spec.label}</p>
-                                        <p style={{ fontSize: '1.1rem', fontWeight: '600' }}>{spec.value}</p>
+                                    <div key={idx} className="spec-item">
+                                        <p className="spec-label">{spec.label}</p>
+                                        <p className="spec-value">{spec.value}</p>
                                     </div>
                                 ))}
                             </div>
                         </motion.div>
-                        <div style={{ flex: '1 1 400px' }}>
-                            <img src="/images/iot_sensor.png" alt="CCTT Sensor" style={{ width: '100%', borderRadius: 'var(--radius-lg)', boxShadow: 'var(--shadow-lg)' }} />
+                        <div className="product-hero-image-wrapper">
+                            <img src="/images/iot_sensor.png" alt="CCTT Sensor" className="product-hero-image" />
                         </div>
                     </div>
                 </div>
@@ -60,46 +61,31 @@ const Product = () => {
             {/* Software Platform Section */}
             <section className="section-padding">
                 <div className="container">
-                    <div style={{ textAlign: 'center', marginBottom: '4rem' }}>
-                        <h2 style={{ fontSize: '2.5rem', marginBottom: '1rem' }}>The Platform</h2>
-                        <p style={{ color: 'var(--brand-gray)', fontSize: '1.1rem', maxWidth: '700px', margin: '0 auto' }}>
+                    <div className="platform-header">
+                        <h2 className="platform-title">The Platform</h2>
+                        <p className="platform-subtitle">
                             A centralized hub for all your cold storage chain temperature data. Meet documentation requirements with ease.
                         </p>
                     </div>
 
-                    <div style={{ position: 'relative', marginBottom: '4rem' }}>
+                    <div className="platform-image-wrapper">
                         <motion.img
                             src="/images/sa_grocery_cold_storage.png"
                             alt="Retail Compliance Monitoring"
-                            style={{
-                                width: '100%',
-                                borderRadius: 'var(--radius-lg)',
-                                boxShadow: 'var(--shadow-lg)',
-                                position: 'relative',
-                                display: 'block'
-                            }}
+                            className="platform-image"
                         />
                     </div>
 
-                    <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))', gap: '2rem' }}>
+                    <div className="features-grid">
                         {softwareFeatures.map((f, i) => (
                             <motion.div
                                 key={i}
                                 whileHover={isMobile ? {} : { y: -10, boxShadow: 'var(--shadow-xl)', borderColor: 'var(--brand-blue-main)' }}
-                                style={{
-                                    padding: '2rem',
-                                    border: '1px solid #e2e8f0',
-                                    borderRadius: 'var(--radius-md)',
-                                    background: 'white',
-                                    transition: 'border-color 0.3s',
-                                    display: 'flex',
-                                    flexDirection: 'column',
-                                    height: '100%'
-                                }}
+                                className="feature-card"
                             >
-                                <div style={{ color: 'var(--brand-blue-dark)', marginBottom: '1rem' }}>{f.icon}</div>
-                                <h3 style={{ marginBottom: '0.5rem', fontSize: '1.25rem' }}>{f.title}</h3>
-                                <p style={{ color: 'var(--brand-gray)', fontSize: '0.95rem', lineHeight: '1.6' }}>{f.desc}</p>
+                                <div className="feature-icon-container">{f.icon}</div>
+                                <h3 className="feature-title">{f.title}</h3>
+                                <p className="feature-desc">{f.desc}</p>
                             </motion.div>
                         ))}
                     </div>

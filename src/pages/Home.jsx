@@ -2,6 +2,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { Shield, Zap, Globe, ArrowRight, CheckCircle2, Activity } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import '../styles/Home.css';
 
 const Home = () => {
     const [isMobile, setIsMobile] = React.useState(window.innerWidth < 768);
@@ -33,44 +34,25 @@ const Home = () => {
     return (
         <div className="home-page">
             {/* Hero Section */}
-            <section style={{
-                minHeight: isMobile ? '80vh' : '90vh',
-                display: 'flex',
-                alignItems: 'center',
-                position: 'relative',
-                overflow: 'hidden',
-                background: 'linear-gradient(135deg, var(--brand-navy) 0%, var(--brand-blue-dark) 100%)',
-                padding: isMobile ? '6rem 0' : '0'
-            }}>
-
-                <div className="container" style={{ position: 'relative', zIndex: 10 }}>
+            <section className={`home-hero ${isMobile ? 'mobile' : ''}`}>
+                <div className="container hero-content">
                     <motion.div
                         initial={{ opacity: 0, y: 30 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.8 }}
-                        style={{ maxWidth: '800px' }}
+                        className="hero-text-wrapper"
                     >
-                        <h1 style={{ fontSize: 'clamp(2.5rem, 6vw, 4.5rem)', color: 'white', lineHeight: '1.1', marginBottom: '1.5rem' }}>
+                        <h1 className="hero-title">
                             South Africa's <span className="text-gradient">Cold Chain Tracking</span> Specialists
                         </h1>
-                        <p style={{ fontSize: '1.25rem', color: 'rgba(255,255,255,0.8)', marginBottom: '2.5rem', lineHeight: '1.6' }}>
+                        <p className="hero-subtitle">
                             Ensuring temperature integrity for grocery stores, suppliers, and refrigerated transport. Meet legal compliance requirements with reliable, real-time monitoring.
                         </p>
-                        <div style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap' }}>
+                        <div className="hero-actions">
                             <Link to="/contact" className="btn-primary" style={{ padding: '1rem 2rem', fontSize: '1.1rem' }}>
                                 Start Tracking Today <ArrowRight size={20} />
                             </Link>
-                            <Link to="/product" style={{
-                                padding: '1rem 2rem',
-                                fontSize: '1.1rem',
-                                border: '1px solid white',
-                                color: 'white',
-                                borderRadius: 'var(--radius-md)',
-                                display: 'inline-flex',
-                                alignItems: 'center',
-                                background: 'rgba(255,255,255,0.1)',
-                                backdropFilter: 'blur(5px)'
-                            }}>
+                            <Link to="/product" className="hero-btn-secondary">
                                 View Solutions
                             </Link>
                         </div>
@@ -81,29 +63,23 @@ const Home = () => {
             {/* Features Section */}
             <section className="section-padding">
                 <div className="container">
-                    <div style={{ textAlign: 'center', marginBottom: '4rem' }}>
-                        <h2 style={{ fontSize: '2.5rem', marginBottom: '1rem' }}>Built for <span className="text-gradient">South African</span> Logistics</h2>
-                        <p style={{ color: 'var(--brand-gray)', fontSize: '1.1rem', maxWidth: '600px', margin: '0 auto' }}>
+                    <div className="features-header">
+                        <h2 className="features-title">Built for <span className="text-gradient">South African</span> Logistics</h2>
+                        <p className="features-subtitle">
                             Our temperature tracking solutions are tailored for the unique demands of local retail and refrigerated trucking.
                         </p>
                     </div>
 
-                    <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '2rem' }}>
+                    <div className="features-grid">
                         {features.map((feature, idx) => (
                             <motion.div
                                 key={idx}
                                 whileHover={{ y: -10 }}
-                                style={{
-                                    padding: '2.5rem',
-                                    borderRadius: 'var(--radius-lg)',
-                                    background: 'white',
-                                    boxShadow: 'var(--shadow-lg)',
-                                    transition: 'all 0.3s ease'
-                                }}
+                                className="feature-card"
                             >
-                                <div style={{ marginBottom: '1.5rem' }}>{feature.icon}</div>
+                                <div className="feature-icon-wrapper">{feature.icon}</div>
                                 <h3 style={{ marginBottom: '1rem' }}>{feature.title}</h3>
-                                <p style={{ color: 'var(--brand-gray)', lineHeight: '1.7' }}>{feature.description}</p>
+                                <p className="feature-description">{feature.description}</p>
                             </motion.div>
                         ))}
                     </div>
@@ -111,27 +87,27 @@ const Home = () => {
             </section>
 
             {/* Sub-Hero / Product Preview */}
-            <section style={{ padding: '6rem 0', background: 'linear-gradient(rgba(15, 23, 42, 0.95), rgba(15, 23, 42, 0.95)), url("/images/website_dashboard_preview.png")', backgroundSize: 'cover', backgroundAttachment: 'fixed', color: 'white' }}>
+            <section className="compliance-section">
                 <div className="container">
-                    <div style={{ display: 'flex', alignItems: 'center', gap: '4rem', flexWrap: 'wrap' }}>
-                        <div style={{ flex: '1 1 500px' }}>
-                            <h2 style={{ fontSize: '2.5rem', marginBottom: '1.5rem', color: 'white' }}>Compliance Made Simple</h2>
-                            <p style={{ fontSize: '1.1rem', color: 'rgba(255,255,255,0.7)', marginBottom: '2rem', lineHeight: '1.8' }}>
+                    <div className="compliance-flex-wrapper">
+                        <div className="compliance-text-content">
+                            <h2 className="compliance-title">Compliance Made Simple</h2>
+                            <p className="compliance-description">
                                 Fulfill South African legal requirements for temperature tracking in trucks, fridges, and freezers. Our platform provides automated logs and instant proof of integrity.
                             </p>
-                            <ul style={{ listStyle: 'none', display: 'flex', flexDirection: 'column', gap: '1rem' }}>
-                                <li style={{ display: 'flex', alignItems: 'center', gap: '1rem' }}>
+                            <ul className="compliance-list">
+                                <li className="compliance-list-item">
                                     <CheckCircle2 color="var(--brand-blue-main)" /> <span>Temperature Cycle Logging</span>
                                 </li>
-                                <li style={{ display: 'flex', alignItems: 'center', gap: '1rem' }}>
+                                <li className="compliance-list-item">
                                     <CheckCircle2 color="var(--brand-blue-main)" /> <span>Instant Temperature Deviation Alerts</span>
                                 </li>
-                                <li style={{ display: 'flex', alignItems: 'center', gap: '1rem' }}>
+                                <li className="compliance-list-item">
                                     <CheckCircle2 color="var(--brand-blue-main)" /> <span>Automated Reporting</span>
                                 </li>
                             </ul>
                         </div>
-                        <div style={{ flex: '1 1 500px', cursor: 'pointer', position: 'relative' }}>
+                        <div className="compliance-visual-content">
                             {/* Hover Hint */}
                             {!isMobile && (
                                 <motion.div
@@ -146,23 +122,7 @@ const Home = () => {
                                         ease: "easeInOut"
                                     }}
                                     whileHover={{ opacity: 0 }}
-                                    style={{
-                                        position: 'absolute',
-                                        top: '-4rem',
-                                        right: '0',
-                                        background: 'var(--brand-blue-main)',
-                                        color: 'white',
-                                        padding: '0.75rem 2rem',
-                                        borderRadius: 'var(--radius-full)',
-                                        fontSize: '1.2rem',
-                                        fontWeight: '700',
-                                        boxShadow: '0 8px 24px rgba(0,0,0,0.3)',
-                                        zIndex: 5,
-                                        pointerEvents: 'none',
-                                        display: 'flex',
-                                        alignItems: 'center',
-                                        gap: '0.75rem'
-                                    }}
+                                    className="hover-hint"
                                 >
                                     <Activity size={20} /> Hover to Expand View
                                 </motion.div>
@@ -177,15 +137,7 @@ const Home = () => {
                                     boxShadow: '0 50px 100px rgba(0,0,0,0.8)',
                                     transition: { duration: 0.3, ease: 'easeOut' }
                                 }}
-                                style={{
-                                    width: '100%',
-                                    borderRadius: 'var(--radius-lg)',
-                                    boxShadow: '0 20px 50px rgba(0,0,0,0.5)',
-                                    border: '1px solid rgba(255,255,255,0.1)',
-                                    display: 'block',
-                                    position: 'relative',
-                                    transformOrigin: 'center center'
-                                }}
+                                className="dashboard-preview"
                             />
                         </div>
                     </div>

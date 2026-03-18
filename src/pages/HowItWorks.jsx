@@ -2,6 +2,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { ShoppingCart, Truck, Settings, MessageSquare, ArrowRight, CheckCircle2 } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import '../styles/HowItWorks.css';
 
 const HowItWorks = () => {
     const [isMobile, setIsMobile] = React.useState(window.innerWidth < 768);
@@ -34,19 +35,19 @@ const HowItWorks = () => {
     ];
 
     return (
-        <div className="how-it-works-page" style={{ paddingTop: '80px' }}>
+        <div className="how-it-works-page">
             {/* Hero Section */}
-            <section className="section-padding" style={{ background: 'var(--brand-gray-light)', textAlign: 'center' }}>
+            <section className="section-padding hero-section">
                 <div className="container">
                     <motion.div
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.6 }}
                     >
-                        <h1 style={{ fontSize: isMobile ? '2.5rem' : '3.5rem', marginBottom: '1.5rem' }}>
+                        <h1 className={`hero-title ${isMobile ? 'mobile' : ''}`}>
                             How It <span className="text-gradient">Works</span>
                         </h1>
-                        <p style={{ fontSize: '1.2rem', color: 'var(--brand-gray)', maxWidth: '800px', margin: '0 auto', lineHeight: '1.6' }}>
+                        <p className="hero-subtitle">
                             From hardware procurement to real-time monitoring, we ensure a seamless integration of cold chain tracking into your business operations.
                         </p>
                     </motion.div>
@@ -56,24 +57,10 @@ const HowItWorks = () => {
             {/* Steps Section */}
             <section className="section-padding">
                 <div className="container">
-                    <div style={{
-                        display: 'flex',
-                        flexDirection: 'column',
-                        gap: '4rem',
-                        position: 'relative'
-                    }}>
+                    <div className="steps-container">
                         {/* Connecting Line (Desktop) */}
                         {!isMobile && (
-                            <div style={{
-                                position: 'absolute',
-                                left: '50px',
-                                top: '50px',
-                                bottom: '50px',
-                                width: '2px',
-                                background: 'linear-gradient(to bottom, var(--brand-blue-main), var(--brand-blue-dark))',
-                                opacity: 0.2,
-                                zIndex: 0
-                            }} />
+                            <div className="connecting-line" />
                         )}
 
                         {steps.map((step, idx) => (
@@ -83,33 +70,22 @@ const HowItWorks = () => {
                                 whileInView={{ opacity: 1, x: 0 }}
                                 viewport={{ once: true }}
                                 transition={{ duration: 0.6, delay: idx * 0.2 }}
-                                style={{
-                                    display: 'flex',
-                                    gap: '2.5rem',
-                                    alignItems: 'flex-start',
-                                    position: 'relative',
-                                    zIndex: 1
-                                }}
+                                className="step-card"
                             >
-                                <div style={{
-                                    minWidth: '100px',
-                                    height: '100px',
-                                    borderRadius: '50%',
-                                    background: 'white',
-                                    display: 'flex',
-                                    alignItems: 'center',
-                                    justifyContent: 'center',
-                                    color: step.color,
-                                    boxShadow: 'var(--shadow-lg)',
-                                    border: `2px solid ${step.color}22`
-                                }}>
+                                <div 
+                                    className="step-icon-wrapper"
+                                    style={{ 
+                                        color: step.color,
+                                        border: `2px solid ${step.color}22`
+                                    }}
+                                >
                                     {step.icon}
                                 </div>
-                                <div style={{ flex: 1, paddingTop: '1rem' }}>
-                                    <h3 style={{ fontSize: '1.75rem', marginBottom: '1rem', color: 'var(--brand-navy)' }}>
+                                <div className="step-content">
+                                    <h3 className="step-title">
                                         {idx + 1}. {step.title}
                                     </h3>
-                                    <p style={{ fontSize: '1.1rem', color: 'var(--brand-gray)', lineHeight: '1.7', maxWidth: '700px' }}>
+                                    <p className="step-desc">
                                         {step.description}
                                     </p>
                                 </div>
@@ -120,20 +96,20 @@ const HowItWorks = () => {
             </section>
 
             {/* CTA Section */}
-            <section className="section-padding" style={{ background: 'var(--brand-navy)', color: 'white' }}>
-                <div className="container" style={{ textAlign: 'center' }}>
+            <section className="section-padding cta-section">
+                <div className="container">
                     <motion.div
                         initial={{ opacity: 0, scale: 0.95 }}
                         whileInView={{ opacity: 1, scale: 1 }}
                         viewport={{ once: true }}
                     >
-                        <h2 style={{ fontSize: '2.5rem', marginBottom: '1.5rem', color: 'white' }}>
+                        <h2 className="cta-title">
                             Ready to Secure Your Cold Chain?
                         </h2>
-                        <p style={{ fontSize: '1.1rem', color: 'rgba(255,255,255,0.7)', maxWidth: '600px', margin: '0 auto 2.5rem', lineHeight: '1.8' }}>
+                        <p className="cta-desc">
                             Reach out to us for a discussion on your business needs and how we can help you with your cold cycle tracking today.
                         </p>
-                        <Link to="/contact" className="btn-primary" style={{ padding: '1rem 2.5rem', fontSize: '1.1rem' }}>
+                        <Link to="/contact" className="btn-primary cta-btn">
                             Contact Us <MessageSquare size={20} />
                         </Link>
                     </motion.div>

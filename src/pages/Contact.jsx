@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Mail, Phone, Send, User } from 'lucide-react';
 import emailjs from '@emailjs/browser';
+import '../styles/Contact.css';
 
 const Contact = () => {
     const [isMobile, setIsMobile] = React.useState(window.innerWidth < 768);
@@ -51,57 +52,57 @@ const Contact = () => {
     };
 
     return (
-        <div className="contact-page" style={{ paddingTop: isMobile ? '80px' : '100px', minHeight: '100vh' }}>
+        <div className="contact-page" style={{ paddingTop: isMobile ? '80px' : '100px' }}>
             <div className="container">
-                <div style={{ display: 'flex', gap: '5rem', flexWrap: 'wrap', marginBottom: '5rem' }}>
+                <div className="contact-flex-container">
                     {/* Contact Info */}
-                    <div style={{ flex: '1 1 400px' }}>
+                    <div className="contact-info-col">
                         <motion.div
                             initial={{ opacity: 0, y: 20 }}
                             animate={{ opacity: 1, y: 0 }}
                         >
-                            <h1 style={{ fontSize: isMobile ? '2.5rem' : '3rem', marginBottom: '1.5rem' }}>Let's <span className="text-gradient">Connect</span></h1>
-                            <p style={{ fontSize: '1.1rem', color: 'var(--brand-gray)', marginBottom: '3rem', lineHeight: '1.8' }}>
+                            <h1 className="contact-headline" style={{ fontSize: isMobile ? '2.5rem' : '3rem' }}>Let's <span className="text-gradient">Connect</span></h1>
+                            <p className="contact-description">
                                 Our technical team is ready to assist you in designing the perfect tracking solution for your business.
                             </p>
 
-                            <div style={{ display: 'flex', flexDirection: 'column', gap: '3rem' }}>
+                            <div className="contact-cards-list">
                                 {/* Sebastian */}
-                                <div style={{ background: 'var(--brand-gray-light)', padding: '1.5rem', borderRadius: 'var(--radius-md)', borderLeft: '4px solid var(--brand-blue-main)' }}>
-                                    <div style={{ display: 'flex', alignItems: 'center', gap: '1rem', marginBottom: '1rem' }}>
-                                        <div style={{ background: 'var(--brand-blue-main)', color: 'white', width: '40px', height: '40px', borderRadius: '50%', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}>
+                                <div className="contact-card sebastian">
+                                    <div className="card-header">
+                                        <div className="icon-circle blue-main">
                                             <User size={20} />
                                         </div>
-                                        <h3 style={{ fontSize: '1.25rem' }}>Sebastian Tridente</h3>
+                                        <h3 className="card-title">Sebastian Tridente</h3>
                                     </div>
-                                    <div style={{ display: 'flex', flexDirection: 'column', gap: '0.75rem' }}>
-                                        <div style={{ display: 'flex', gap: '0.75rem', alignItems: 'center', color: 'var(--brand-gray)' }}>
+                                    <div className="contact-details">
+                                        <div className="contact-detail-item">
                                             <Mail size={18} />
-                                            <a href="mailto:ccttseb@gmail.com" style={{ fontWeight: '500' }}>ccttseb@gmail.com</a>
+                                            <a href="mailto:ccttseb@gmail.com" className="contact-link">ccttseb@gmail.com</a>
                                         </div>
-                                        <div style={{ display: 'flex', gap: '0.75rem', alignItems: 'center', color: 'var(--brand-gray)' }}>
+                                        <div className="contact-detail-item">
                                             <Phone size={18} />
-                                            <a href="tel:0768256695" style={{ fontWeight: '500' }}>076 825 6695</a>
+                                            <a href="tel:0768256695" className="contact-link">076 825 6695</a>
                                         </div>
                                     </div>
                                 </div>
 
                                 {/* Carel */}
-                                <div style={{ background: 'var(--brand-gray-light)', padding: '1.5rem', borderRadius: 'var(--radius-md)', borderLeft: '4px solid var(--brand-blue-dark)' }}>
-                                    <div style={{ display: 'flex', alignItems: 'center', gap: '1rem', marginBottom: '1rem' }}>
-                                        <div style={{ background: 'var(--brand-blue-dark)', color: 'white', width: '40px', height: '40px', borderRadius: '50%', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}>
+                                <div className="contact-card carel">
+                                    <div className="card-header">
+                                        <div className="icon-circle blue-dark">
                                             <User size={20} />
                                         </div>
-                                        <h3 style={{ fontSize: '1.25rem' }}>Carel Trichardt</h3>
+                                        <h3 className="card-title">Carel Trichardt</h3>
                                     </div>
-                                    <div style={{ display: 'flex', flexDirection: 'column', gap: '0.75rem' }}>
-                                        <div style={{ display: 'flex', gap: '0.75rem', alignItems: 'center', color: 'var(--brand-gray)' }}>
+                                    <div className="contact-details">
+                                        <div className="contact-detail-item">
                                             <Mail size={18} />
-                                            <a href="mailto:ccttcarel@gmail.com" style={{ fontWeight: '500' }}>ccttcarel@gmail.com</a>
+                                            <a href="mailto:ccttcarel@gmail.com" className="contact-link">ccttcarel@gmail.com</a>
                                         </div>
-                                        <div style={{ display: 'flex', gap: '0.75rem', alignItems: 'center', color: 'var(--brand-gray)' }}>
+                                        <div className="contact-detail-item">
                                             <Phone size={18} />
-                                            <a href="tel:0798787392" style={{ fontWeight: '500' }}>079 878 7392</a>
+                                            <a href="tel:0798787392" className="contact-link">079 878 7392</a>
                                         </div>
                                     </div>
                                 </div>
@@ -110,15 +111,10 @@ const Contact = () => {
                     </div>
 
                     {/* Contact Form */}
-                    <div style={{ flex: '1 1 500px' }}>
+                    <div className="contact-form-col">
                         <motion.div
-                            style={{
-                                background: 'white',
-                                padding: isMobile ? '1.5rem' : '3rem',
-                                borderRadius: 'var(--radius-lg)',
-                                boxShadow: 'var(--shadow-lg)',
-                                border: '1px solid #e2e8f0'
-                            }}
+                            className="form-wrapper"
+                            style={{ padding: isMobile ? '1.5rem' : '3rem' }}
                             initial={{ opacity: 0, scale: 0.95 }}
                             animate={{ opacity: 1, scale: 1 }}
                         >
@@ -126,9 +122,9 @@ const Contact = () => {
                                 <motion.div
                                     initial={{ opacity: 0, y: 10 }}
                                     animate={{ opacity: 1, y: 0 }}
-                                    style={{ textAlign: 'center', padding: '2rem 0' }}
+                                    className="success-message"
                                 >
-                                    <div style={{ background: '#dcfce7', color: '#166534', width: '64px', height: '64px', borderRadius: '50%', display: 'flex', alignItems: 'center', justifyContent: 'center', margin: '0 auto 1.5rem auto' }}>
+                                    <div className="success-icon-circle">
                                         <Send size={32} />
                                     </div>
                                     <h3 style={{ marginBottom: '1rem' }}>Inquiry Sent!</h3>
@@ -145,9 +141,9 @@ const Contact = () => {
                                 <>
                                     <h3 style={{ marginBottom: '2rem' }}>Send an Inquiry</h3>
                                     <form onSubmit={handleSubmit} style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem' }}>
-                                        <div style={{ display: 'grid', gridTemplateColumns: isMobile ? '1fr' : '1fr 1fr', gap: '1rem' }}>
-                                            <div style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
-                                                <label style={{ fontSize: '0.9rem', fontWeight: '600' }}>Full Name</label>
+                                        <div className="form-group-row" style={{ gridTemplateColumns: isMobile ? '1fr' : '1fr 1fr' }}>
+                                            <div className="form-group">
+                                                <label className="form-label">Full Name</label>
                                                 <input
                                                     name="name"
                                                     value={formData.name}
@@ -155,11 +151,11 @@ const Contact = () => {
                                                     type="text"
                                                     required
                                                     disabled={status === 'sending'}
-                                                    style={{ padding: '0.75rem', borderRadius: 'var(--radius-md)', border: '1px solid #cbd5e1' }}
+                                                    className="form-input"
                                                 />
                                             </div>
-                                            <div style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
-                                                <label style={{ fontSize: '0.9rem', fontWeight: '600' }}>Email Address</label>
+                                            <div className="form-group">
+                                                <label className="form-label">Email Address</label>
                                                 <input
                                                     name="email"
                                                     value={formData.email}
@@ -167,23 +163,23 @@ const Contact = () => {
                                                     type="email"
                                                     required
                                                     disabled={status === 'sending'}
-                                                    style={{ padding: '0.75rem', borderRadius: 'var(--radius-md)', border: '1px solid #cbd5e1' }}
+                                                    className="form-input"
                                                 />
                                             </div>
                                         </div>
-                                        <div style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
-                                            <label style={{ fontSize: '0.9rem', fontWeight: '600' }}>Company Name</label>
+                                        <div className="form-group">
+                                            <label className="form-label">Company Name</label>
                                             <input
                                                 name="company"
                                                 value={formData.company}
                                                 onChange={handleChange}
                                                 type="text"
                                                 disabled={status === 'sending'}
-                                                style={{ padding: '0.75rem', borderRadius: 'var(--radius-md)', border: '1px solid #cbd5e1' }}
+                                                className="form-input"
                                             />
                                         </div>
-                                        <div style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
-                                            <label style={{ fontSize: '0.9rem', fontWeight: '600' }}>Message</label>
+                                        <div className="form-group">
+                                            <label className="form-label">Message</label>
                                             <textarea
                                                 name="message"
                                                 value={formData.message}
@@ -191,19 +187,19 @@ const Contact = () => {
                                                 rows="4"
                                                 required
                                                 disabled={status === 'sending'}
-                                                style={{ padding: '0.75rem', borderRadius: 'var(--radius-md)', border: '1px solid #cbd5e1' }}
+                                                className="form-textarea"
                                             />
                                         </div>
 
                                         {status === 'error' && (
-                                            <p style={{ color: '#dc2626', fontSize: '0.9rem', fontWeight: '500' }}>Oops! Something went wrong. Please try again or contact us directly.</p>
+                                            <p className="error-text">Oops! Something went wrong. Please try again or contact us directly.</p>
                                         )}
 
                                         <button
                                             type="submit"
-                                            className="btn-primary"
+                                            className="btn-primary submit-btn"
                                             disabled={status === 'sending'}
-                                            style={{ justifyContent: 'center', marginTop: '1rem', opacity: status === 'sending' ? 0.7 : 1 }}
+                                            style={{ opacity: status === 'sending' ? 0.7 : 1 }}
                                         >
                                             {status === 'sending' ? 'Sending...' : 'Send Message'}
                                             <Send size={18} />

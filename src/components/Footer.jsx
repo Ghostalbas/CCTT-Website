@@ -1,6 +1,7 @@
 import React from 'react';
 import { Snowflake, Mail, Phone, MapPin, Linkedin, Twitter } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import '../styles/Footer.css';
 
 const Footer = () => {
     const [isMobile, setIsMobile] = React.useState(window.innerWidth < 768);
@@ -12,70 +13,54 @@ const Footer = () => {
     }, []);
 
     return (
-        <footer style={{ background: 'var(--brand-navy)', color: 'white', padding: isMobile ? '3rem 0 2rem 0' : '5rem 0 2rem 0' }}>
+        <footer className={`footer ${isMobile ? 'mobile' : ''}`}>
             <div className="container">
-                <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))', gap: '3rem', marginBottom: '4rem' }}>
+                <div className="footer-grid">
                     <div>
-                        <div style={{
-                            display: 'flex',
-                            alignItems: 'center',
-                            fontWeight: 800,
-                            fontSize: '1.5rem',
-                            marginBottom: isMobile ? '1.5rem' : '0.1rem',
-                            marginLeft: isMobile ? '0' : '-50px',
-                            color: 'white',
-                            position: 'relative',
-                            justifyContent: isMobile ? 'flex-start' : 'flex-start'
-                        }}>
+                        <div className={`footer-brand-wrapper ${isMobile ? 'mobile' : ''}`}>
                             <img
                                 src="/images/company_logo.png"
                                 alt="CCTT Logo"
-                                style={{
-                                    height: isMobile ? '60px' : '80px',
-                                    width: 'auto',
-                                    borderRadius: '4px',
-                                    objectFit: 'contain',
-                                    transform: isMobile ? 'none' : 'translateY(12px)'
-                                }}
+                                className={`footer-logo ${isMobile ? 'mobile' : ''}`}
                             />
-                            <span style={{ marginLeft: '-38px', zIndex: 1, textShadow: '0 2px 4px rgba(0,0,0,0.2)' }}>CCTT</span>
+                            <span className="footer-brand-text">CCTT</span>
                         </div>
-                        <p style={{ color: 'rgba(255,255,255,0.7)', lineHeight: '1.6', marginBottom: '1.5rem' }}>
+                        <p className="footer-description">
                             Ensuring cold chain integrity across South Africa. Specializing in temperature tracking and legal compliance for grocery retail and refrigerated transport.
                         </p>
                     </div>
 
                     <div>
-                        <h4 style={{ fontSize: '1.2rem', marginBottom: '1.5rem' }}>Quick Links</h4>
-                        <ul style={{ listStyle: 'none', display: 'flex', flexDirection: 'column', gap: '0.75rem' }}>
-                            <li><Link to="/" style={{ color: 'rgba(255,255,255,0.7)' }}>Home</Link></li>
-                            <li><Link to="/product" style={{ color: 'rgba(255,255,255,0.7)' }}>Our Solution</Link></li>
-                            <li><Link to="/how-it-works" style={{ color: 'rgba(255,255,255,0.7)' }}>How It Works</Link></li>
-                            <li><Link to="/contact" style={{ color: 'rgba(255,255,255,0.7)' }}>Contact Us</Link></li>
+                        <h4 className="footer-heading">Quick Links</h4>
+                        <ul className="footer-links-list">
+                            <li><Link to="/" className="footer-link">Home</Link></li>
+                            <li><Link to="/product" className="footer-link">Our Solution</Link></li>
+                            <li><Link to="/how-it-works" className="footer-link">How It Works</Link></li>
+                            <li><Link to="/contact" className="footer-link">Contact Us</Link></li>
                         </ul>
                     </div>
 
                     <div>
-                        <h4 style={{ fontSize: '1.2rem', marginBottom: '1.5rem' }}>Contact Us</h4>
-                        <div style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem' }}>
-                            <ul style={{ listStyle: 'none', display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
-                                <li style={{ fontWeight: 600, color: 'white', fontSize: '0.9rem', marginBottom: '0.25rem' }}>Sebastian Tridente</li>
-                                <li style={{ display: 'flex', gap: '0.75rem', color: 'rgba(255,255,255,0.7)', fontSize: '0.9rem' }}>
+                        <h4 className="footer-heading">Contact Us</h4>
+                        <div className="footer-contact-wrapper">
+                            <ul className="contact-person-list">
+                                <li className="contact-name">Sebastian Tridente</li>
+                                <li className="contact-info-item">
                                     <Phone size={16} color="var(--brand-blue-main)" />
                                     <span>076 825 6695</span>
                                 </li>
-                                <li style={{ display: 'flex', gap: '0.75rem', color: 'rgba(255,255,255,0.7)', fontSize: '0.9rem' }}>
+                                <li className="contact-info-item">
                                     <Mail size={16} color="var(--brand-blue-main)" />
                                     <span>ccttseb@gmail.com</span>
                                 </li>
                             </ul>
-                            <ul style={{ listStyle: 'none', display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
-                                <li style={{ fontWeight: 600, color: 'white', fontSize: '0.9rem', marginBottom: '0.25rem' }}>Carel Trichardt</li>
-                                <li style={{ display: 'flex', gap: '0.75rem', color: 'rgba(255,255,255,0.7)', fontSize: '0.9rem' }}>
+                            <ul className="contact-person-list">
+                                <li className="contact-name">Carel Trichardt</li>
+                                <li className="contact-info-item">
                                     <Phone size={16} color="var(--brand-blue-main)" />
                                     <span>079 878 7392</span>
                                 </li>
-                                <li style={{ display: 'flex', gap: '0.75rem', color: 'rgba(255,255,255,0.7)', fontSize: '0.9rem' }}>
+                                <li className="contact-info-item">
                                     <Mail size={16} color="var(--brand-blue-main)" />
                                     <span>ccttcarel@gmail.com</span>
                                 </li>
@@ -84,7 +69,7 @@ const Footer = () => {
                     </div>
                 </div>
 
-                <div style={{ borderTop: '1px solid rgba(255,255,255,0.1)', paddingTop: '2rem', textAlign: 'center', fontSize: '0.9rem', color: 'rgba(255,255,255,0.5)' }}>
+                <div className="footer-bottom">
                     <p>© {new Date().getFullYear()} Cold Cycle Tracking Technology. All rights reserved.</p>
                 </div>
             </div>
