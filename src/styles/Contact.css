@@ -163,3 +163,9 @@
     justify-content: center;
     margin-top: 1rem;
 }
+
+@media (max-width: 768px) {
+    .contact-headline {
+        margin-top: 1rem;
+    }
+}

@@ -61,7 +61,7 @@ const Contact = () => {
     };
 
     return (
-        <div className="contact-page" style={{ paddingTop: isMobile ? '80px' : '100px' }}>
+        <div className="contact-page" style={{ paddingTop: isMobile ? '110px' : '100px' }}>
             <div className="container">
                 <div className="contact-flex-container">
                     {/* Contact Info */}
