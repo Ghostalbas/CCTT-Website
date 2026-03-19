@@ -1,19 +1,25 @@
-import React from 'react';
+import React, { useState, useEffect, ReactNode } from 'react';
 import { motion } from 'framer-motion';
 import { Shield, Zap, Globe, ArrowRight, CheckCircle2, Activity } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import '../styles/Home.css';
 
-const Home = () => {
-    const [isMobile, setIsMobile] = React.useState(window.innerWidth < 768);
+interface Feature {
+    title: string;
+    description: string;
+    icon: ReactNode;
+}
 
-    React.useEffect(() => {
+const Home = () => {
+    const [isMobile, setIsMobile] = useState<boolean>(window.innerWidth < 768);
+
+    useEffect(() => {
         const handleResize = () => setIsMobile(window.innerWidth < 768);
         window.addEventListener('resize', handleResize);
         return () => window.removeEventListener('resize', handleResize);
     }, []);
 
-    const features = [
+    const features: Feature[] = [
         {
             title: 'National Coverage',
             description: 'Reliable real-time tracking across all provinces in South Africa.',
@@ -26,7 +32,7 @@ const Home = () => {
         },
         {
             title: 'Immediate Alerts',
-            description: 'Instant notifications for any temperature deviations in fridges or trucks.',
+            description: 'Instant SMS, Email, WhatsApp, and Voice call notifications for deviations.',
             icon: <Zap size={40} color="var(--brand-blue-main)" />
         }
     ];
@@ -100,7 +106,7 @@ const Home = () => {
                                     <CheckCircle2 color="var(--brand-blue-main)" /> <span>Temperature Cycle Logging</span>
                                 </li>
                                 <li className="compliance-list-item">
-                                    <CheckCircle2 color="var(--brand-blue-main)" /> <span>Instant Temperature Deviation Alerts</span>
+                                    <CheckCircle2 color="var(--brand-blue-main)" /> <span>SMS, Email, WhatsApp & Voice Alerts</span>
                                 </li>
                                 <li className="compliance-list-item">
                                     <CheckCircle2 color="var(--brand-blue-main)" /> <span>Automated Reporting</span>

@@ -1,27 +1,36 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect, ChangeEvent, FormEvent } from 'react';
 import { motion } from 'framer-motion';
 import { Mail, Phone, Send, User } from 'lucide-react';
 import emailjs from '@emailjs/browser';
 import '../styles/Contact.css';
 
-const Contact = () => {
-    const [isMobile, setIsMobile] = React.useState(window.innerWidth < 768);
+interface FormData {
+    name: string;
+    email: string;
+    company: string;
+    message: string;
+}
 
-    React.useEffect(() => {
+type Status = 'idle' | 'sending' | 'success' | 'error';
+
+const Contact = () => {
+    const [isMobile, setIsMobile] = useState<boolean>(window.innerWidth < 768);
+
+    useEffect(() => {
         const handleResize = () => setIsMobile(window.innerWidth < 768);
         window.addEventListener('resize', handleResize);
         return () => window.removeEventListener('resize', handleResize);
     }, []);
 
-    const [formData, setFormData] = useState({
+    const [formData, setFormData] = useState<FormData>({
         name: '',
         email: '',
         company: '',
         message: ''
     });
-    const [status, setStatus] = useState('idle'); // idle, sending, success, error
+    const [status, setStatus] = useState<Status>('idle');
 
-    const handleSubmit = async (e) => {
+    const handleSubmit = async (e: FormEvent) => {
         e.preventDefault();
         setStatus('sending');
 
@@ -46,7 +55,7 @@ const Contact = () => {
         }
     };
 
-    const handleChange = (e) => {
+    const handleChange = (e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
         const { name, value } = e.target;
         setFormData(prev => ({ ...prev, [name]: value }));
     };
@@ -184,7 +193,7 @@ const Contact = () => {
                                                 name="message"
                                                 value={formData.message}
                                                 onChange={handleChange}
-                                                rows="4"
+                                                rows={4}
                                                 required
                                                 disabled={status === 'sending'}
                                                 className="form-textarea"

@@ -1,12 +1,12 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { Snowflake, Mail, Phone, MapPin, Linkedin, Twitter } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import '../styles/Footer.css';
 
 const Footer = () => {
-    const [isMobile, setIsMobile] = React.useState(window.innerWidth < 768);
+    const [isMobile, setIsMobile] = useState<boolean>(window.innerWidth < 768);
 
-    React.useEffect(() => {
+    useEffect(() => {
         const handleResize = () => setIsMobile(window.innerWidth < 768);
         window.addEventListener('resize', handleResize);
         return () => window.removeEventListener('resize', handleResize);
@@ -36,6 +36,7 @@ const Footer = () => {
                             <li><Link to="/" className="footer-link">Home</Link></li>
                             <li><Link to="/product" className="footer-link">Our Solution</Link></li>
                             <li><Link to="/how-it-works" className="footer-link">How It Works</Link></li>
+                            <li><Link to="/pricing" className="footer-link">Pricing</Link></li>
                             <li><Link to="/contact" className="footer-link">Contact Us</Link></li>
                         </ul>
                     </div>

@@ -32,6 +32,11 @@
     margin-left: 0;
 }
 
+.footer-brand-wrapper.mobile .footer-brand-text {
+    margin-left: -30px;
+    transform: translateY(-10px);
+}
+
 .footer-logo {
     height: 80px;
     width: auto;
@@ -48,7 +53,7 @@
 .footer-brand-text {
     margin-left: -38px;
     z-index: 1;
-    text-shadow: 0 2px 4px rgba(0,0,0,0.2);
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
 }
 
 .footer-description {
@@ -70,7 +75,7 @@
 }
 
 .footer-link {
-    color: rgba(255,255,255,0.7);
+    color: rgba(255, 255, 255, 0.7);
     transition: color 0.2s ease;
 }
 
@@ -101,14 +106,14 @@
 .contact-info-item {
     display: flex;
     gap: 0.75rem;
-    color: rgba(255,255,255,0.7);
+    color: rgba(255, 255, 255, 0.7);
     font-size: 0.9rem;
 }
 
 .footer-bottom {
-    border-top: 1px solid rgba(255,255,255,0.1);
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
     padding-top: 2rem;
     text-align: center;
     font-size: 0.9rem;
-    color: rgba(255,255,255,0.5);
+    color: rgba(255, 255, 255, 0.5);
 }

@@ -1,7 +1,11 @@
 import React from 'react';
 import { useTheme } from '../context/ThemeContext';
 
-const ThemeToggle = ({ className = "" }) => {
+interface ThemeToggleProps {
+  className?: string;
+}
+
+const ThemeToggle = ({ className = "" }: ThemeToggleProps) => {
   const { theme, toggleTheme } = useTheme();
 
   return (

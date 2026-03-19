@@ -1,29 +1,40 @@
-import React from 'react';
+import React, { useState, useEffect, ReactNode } from 'react';
 import { motion } from 'framer-motion';
 import { Layers, Activity, Database, Cpu, HardDrive, Share2, FileText, AlertCircle } from 'lucide-react';
 import '../styles/Product.css';
 
-const Product = () => {
-    const [isMobile, setIsMobile] = React.useState(window.innerWidth < 768);
+interface HardwareSpec {
+    label: string;
+    value: string;
+}
 
-    React.useEffect(() => {
+interface SoftwareFeature {
+    title: string;
+    icon: ReactNode;
+    desc: string;
+}
+
+const Product = () => {
+    const [isMobile, setIsMobile] = useState<boolean>(window.innerWidth < 768);
+
+    useEffect(() => {
         const handleResize = () => setIsMobile(window.innerWidth < 768);
         window.addEventListener('resize', handleResize);
         return () => window.removeEventListener('resize', handleResize);
     }, []);
 
-    const hardwareSpecs = [
+    const hardwareSpecs: HardwareSpec[] = [
         { label: 'Temp Range', value: '-55°C to +90°C' },
         { label: 'Accuracy', value: '±0.5°C' },
         { label: 'Battery Life', value: '5 Years (Replaceable)' },
         { label: 'Connectivity', value: '5G' }
     ];
 
-    const softwareFeatures = [
+    const softwareFeatures: SoftwareFeature[] = [
         { title: 'Dashboard', icon: <Activity />, desc: 'Real-time temperature telemetry with automated logging.' },
         { title: 'Always Online', icon: <Database />, desc: 'Data tracking accessible for inspection anywhere anytime.' },
         { title: 'Automated Reporting', icon: <FileText />, desc: 'Generate temperature cycle reports for trucks and freezers.' },
-        { title: 'Real-Time Alerts', icon: <AlertCircle />, desc: 'Receive instant notifications when temperatures deviate from acceptable ranges.' }
+        { title: 'Real-Time Alerts', icon: <AlertCircle />, desc: 'Receive instant notifications via SMS, Email, WhatsApp, and Voice calls when temperatures deviate.' }
     ];
 
     return (

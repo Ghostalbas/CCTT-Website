@@ -5,13 +5,19 @@ import { motion, AnimatePresence } from 'framer-motion';
 import ThemeToggle from './ThemeToggle';
 import '../styles/Navbar.css';
 
+interface NavLinkItem {
+    name: string;
+    path: string;
+}
+
 const Navbar = () => {
-    const [isScrolled, setIsScrolled] = useState(false);
-    const [isMenuOpen, setIsMenuOpen] = useState(false);
+    const [isScrolled, setIsScrolled] = useState<boolean>(false);
+    const [isMenuOpen, setIsMenuOpen] = useState<boolean>(false);
     const location = useLocation();
     const isHomePage = location.pathname === '/';
+    const isPricingPage = location.pathname === '/pricing';
 
-    const [isMobile, setIsMobile] = useState(window.innerWidth < 768);
+    const [isMobile, setIsMobile] = useState<boolean>(window.innerWidth < 768);
 
     useEffect(() => {
         const handleScroll = () => {
@@ -29,13 +35,14 @@ const Navbar = () => {
     }, []);
 
     // Determine state classes
-    const isDarkBackground = isHomePage && !isScrolled && !isMenuOpen && !isMobile;
+    const isDarkBackground = (isHomePage || isPricingPage) && !isScrolled && !isMenuOpen && !isMobile;
     const navbarClasses = `navbar ${isScrolled ? 'scrolled' : ''} ${isMobile ? 'mobile' : ''} ${isDarkBackground ? 'dark-bg' : ''}`;
 
-    const navLinks = [
+    const navLinks: NavLinkItem[] = [
         { name: 'Home', path: '/' },
         { name: 'Product', path: '/product' },
         { name: 'How It Works', path: '/how-it-works' },
+        { name: 'Pricing', path: '/pricing' },
         { name: 'Contact', path: '/contact' },
     ];
 

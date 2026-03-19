@@ -1,19 +1,26 @@
-import React from 'react';
+import React, { useState, useEffect, ReactNode } from 'react';
 import { motion } from 'framer-motion';
 import { ShoppingCart, Truck, Settings, MessageSquare, ArrowRight, CheckCircle2 } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import '../styles/HowItWorks.css';
 
-const HowItWorks = () => {
-    const [isMobile, setIsMobile] = React.useState(window.innerWidth < 768);
+interface Step {
+    title: string;
+    description: string;
+    icon: ReactNode;
+    color: string;
+}
 
-    React.useEffect(() => {
+const HowItWorks = () => {
+    const [isMobile, setIsMobile] = useState<boolean>(window.innerWidth < 768);
+
+    useEffect(() => {
         const handleResize = () => setIsMobile(window.innerWidth < 768);
         window.addEventListener('resize', handleResize);
         return () => window.removeEventListener('resize', handleResize);
     }, []);
 
-    const steps = [
+    const steps: Step[] = [
         {
             title: 'Purchase Devices',
             description: 'Clients purchase the CCTT tracking devices directly. Our team provides guidance on the best hardware configuration for your specific business needs.',
@@ -28,7 +35,7 @@ const HowItWorks = () => {
         },
         {
             title: 'Setup & Support',
-            description: 'Once installed, we assist with access to and setup of your customized dashboards, automated alerts, and detailed compliance reports.',
+            description: 'Once installed, we assist with access to and setup of your customized dashboards, automated SMS/Email/WhatsApp/Voice alerts, and detailed compliance reports.',
             icon: <Settings size={40} />,
             color: 'var(--brand-blue-main)'
         }
