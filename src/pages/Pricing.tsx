@@ -56,11 +56,11 @@ const Pricing = () => {
                                 className="pricing-card"
                             >
                                 <div className="card-header">
-                                    <Smartphone size={40} color="var(--brand-blue-main)" />
-                                    <div className="title-price-row">
+                                    <div className="title-row">
+                                        <Smartphone size={isMobile ? 32 : 28} />
                                         <h2>Hardware Cost</h2>
-                                        <p className="price-tag">R1,455.00 <span className="price-type">/ unit</span></p>
                                     </div>
+                                    <p className="price-tag">R1,455.00 <span className="price-type">/ unit</span></p>
                                     <p className="price-subtitle">Once-off purchase per device</p>
                                 </div>
                                 <div className="card-body">
@@ -78,11 +78,11 @@ const Pricing = () => {
                                 className="pricing-card"
                             >
                                 <div className="card-header">
-                                    <Zap size={40} color="var(--brand-blue-main)" />
-                                    <div className="title-price-row">
+                                    <div className="title-row">
+                                        <Zap size={isMobile ? 32 : 28} />
                                         <h2>Hosting Service</h2>
-                                        <p className="price-tag">R58.00 <span className="price-type">/ month</span></p>
                                     </div>
+                                    <p className="price-tag">R58.00 <span className="price-type">/ month</span></p>
                                     <p className="price-subtitle">Per unit recurring service fee</p>
                                 </div>
                                 <div className="card-body">

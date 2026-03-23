@@ -12,6 +12,9 @@
     gap: 5rem;
     flex-wrap: wrap;
     margin-bottom: 5rem;
+    justify-content: flex-start;
+    align-items: flex-start;
+    text-align: left;
 }
 
 /* Contact Info Column */
@@ -40,6 +43,14 @@
 .contact-card {
     padding: 1.5rem;
     border-radius: var(--radius-md);
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start !important;
+    text-align: left !important;
+}
+
+.contact-card * {
+    text-align: left !important;
 }
 
 .contact-card.sebastian {
@@ -47,18 +58,19 @@
     border-left: 4px solid var(--brand-blue-main);
 }
 
-
 .contact-card.carel {
     background: var(--accent);
     border-left: 4px solid var(--brand-blue-dark);
 }
 
-
-.card-header {
+.contact-page .card-header {
     display: flex;
-    align-items: center;
+    flex-direction: row !important;
+    align-items: center !important;
+    justify-content: flex-start !important;
     gap: 1rem;
     margin-bottom: 1rem;
+    width: 100%;
 }
 
 .icon-circle {
@@ -132,9 +144,16 @@
     margin: 0 auto 1.5rem auto;
 }
 
-.form-group-row {
-    display: grid;
-    gap: 1rem;
+.contact-page h1,
+.contact-page h2,
+.contact-page h3,
+.contact-page h4,
+.contact-page p,
+.contact-page span,
+.contact-page li,
+.contact-page label,
+.contact-page a {
+    text-align: left !important;
 }
 
 .form-group {
@@ -174,23 +193,43 @@
  * -----------------------------
  */
 @media (max-width: 768px) {
+    .contact-page h1,
+    .contact-page h2,
+    .contact-page h3,
+    .contact-page h4,
+    .contact-page p,
+    .contact-page span,
+    .contact-page li,
+    .contact-page label {
+        text-align: left !important;
+    }
+
     .contact-headline {
         margin-top: 1rem;
-        text-align: center;
+        text-align: left !important;
     }
     .contact-description {
-        text-align: left;
+        text-align: left !important;
     }
     .contact-info-col {
-        text-align: left;
+        text-align: left !important;
     }
     .form-wrapper {
-        text-align: left;
+        text-align: left !important;
     }
     .form-group {
-        align-items: stretch;
+        align-items: stretch !important;
     }
     .form-input, .form-textarea {
-        text-align: left;
+        text-align: left !important;
+    }
+    .contact-card {
+        align-items: flex-start !important;
+    }
+    .card-header {
+        justify-content: flex-start !important;
+    }
+    .contact-detail-item {
+        justify-content: flex-start !important;
     }
 }
