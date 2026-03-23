@@ -4,13 +4,24 @@ import { Shield, Zap, Globe, ArrowRight, CheckCircle2, Activity } from 'lucide-r
 import { Link } from 'react-router-dom';
 import '../styles/Home.css';
 
+/**
+ * Defines the structure for a key feature displayed on the home page.
+ */
 interface Feature {
     title: string;
     description: string;
     icon: ReactNode;
 }
 
+/**
+ * Home Page Component
+ * Serving as the primary landing page, it features:
+ * - A hero section with South Africa-specific branding.
+ * - A grid of core logistics features.
+ * - An interactive "Compliance Made Simple" section with an expandable dashboard preview.
+ */
 const Home = () => {
+    // Responsive state for mobile layout adjustments
     const [isMobile, setIsMobile] = useState<boolean>(window.innerWidth < 768);
 
     useEffect(() => {
@@ -19,6 +30,9 @@ const Home = () => {
         return () => window.removeEventListener('resize', handleResize);
     }, []);
 
+    /**
+     * Core value propositions for the South African market
+     */
     const features: Feature[] = [
         {
             title: 'National Coverage',
@@ -96,6 +110,43 @@ const Home = () => {
             <section className="compliance-section">
                 <div className="container">
                     <div className="compliance-flex-wrapper">
+                        <div className="compliance-visual-content">
+                            {/* 
+                                Dashboard Preview Interaction:
+                                Displays an expandable image on hover for desktop users.
+                                Includes a subtle floating "Hover to Expand" badge.
+                            */}
+                            {!isMobile && (
+                                <motion.div
+                                    initial={{ opacity: 0.8, y: 0 }}
+                                    animate={{
+                                        opacity: [0.4, 0.8, 0.4],
+                                        y: [0, -5, 0],
+                                    }}
+                                    transition={{
+                                        duration: 2,
+                                        repeat: Infinity,
+                                        ease: "easeInOut"
+                                    }}
+                                    whileHover={{ opacity: 0 }}
+                                    className="hover-hint"
+                                >
+                                    <Activity size={16} /> Hover to Expand View
+                                </motion.div>
+                            )}
+
+                            <motion.img
+                                src="/images/website_dashboard_preview.png"
+                                alt="CCTT Dashboard"
+                                whileHover={isMobile ? {} : {
+                                    scale: 1.8,
+                                    zIndex: 50,
+                                    boxShadow: '0 50px 100px rgba(0,0,0,0.8)',
+                                    transition: { duration: 0.3, ease: 'easeOut' }
+                                }}
+                                className="dashboard-preview"
+                            />
+                        </div>
                         <div className="compliance-text-content">
                             <h2 className="compliance-title">Compliance Made Simple</h2>
                             <p className="compliance-description">
@@ -112,39 +163,6 @@ const Home = () => {
                                     <CheckCircle2 color="var(--brand-blue-main)" /> <span>Automated Reporting</span>
                                 </li>
                             </ul>
-                        </div>
-                        <div className="compliance-visual-content">
-                            {/* Hover Hint */}
-                            {!isMobile && (
-                                <motion.div
-                                    initial={{ opacity: 0.8, y: 0 }}
-                                    animate={{
-                                        opacity: [0.4, 0.8, 0.4],
-                                        y: [0, -5, 0],
-                                    }}
-                                    transition={{
-                                        duration: 2,
-                                        repeat: Infinity,
-                                        ease: "easeInOut"
-                                    }}
-                                    whileHover={{ opacity: 0 }}
-                                    className="hover-hint"
-                                >
-                                    <Activity size={20} /> Hover to Expand View
-                                </motion.div>
-                            )}
-
-                            <motion.img
-                                src="/images/website_dashboard_preview.png"
-                                alt="CCTT Dashboard"
-                                whileHover={isMobile ? {} : {
-                                    scale: 1.8,
-                                    zIndex: 50,
-                                    boxShadow: '0 50px 100px rgba(0,0,0,0.8)',
-                                    transition: { duration: 0.3, ease: 'easeOut' }
-                                }}
-                                className="dashboard-preview"
-                            />
                         </div>
                     </div>
                 </div>

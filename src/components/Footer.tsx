@@ -3,7 +3,13 @@ import { Snowflake, Mail, Phone, MapPin, Linkedin, Twitter } from 'lucide-react'
 import { Link } from 'react-router-dom';
 import '../styles/Footer.css';
 
+/**
+ * Footer Component
+ * Displays company branding, quick links, and contact information.
+ * Adapts layout for mobile devices using responsive state.
+ */
 const Footer = () => {
+    // Responsive state for mobile layout adjustments
     const [isMobile, setIsMobile] = useState<boolean>(window.innerWidth < 768);
 
     useEffect(() => {
@@ -16,6 +22,7 @@ const Footer = () => {
         <footer className={`footer ${isMobile ? 'mobile' : ''}`}>
             <div className="container">
                 <div className="footer-grid">
+                    {/* Brand Section */}
                     <div>
                         <div className={`footer-brand-wrapper ${isMobile ? 'mobile' : ''}`}>
                             <img
@@ -29,6 +36,8 @@ const Footer = () => {
                             Ensuring cold chain integrity across South Africa. Specializing in temperature tracking and legal compliance for grocery retail and refrigerated transport.
                         </p>
                     </div>
+
+                    {/* Navigation Links */}
 
                     <div>
                         <h4 className="footer-heading">Quick Links</h4>

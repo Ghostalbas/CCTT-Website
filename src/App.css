@@ -1,3 +1,8 @@
+/* 
+ * App Level Styles
+ * ----------------
+ * Root container styling and global animations.
+ */
 #root {
   max-width: 1280px;
   margin: 0 auto;
@@ -18,6 +23,10 @@
   filter: drop-shadow(0 0 2em #61dafbaa);
 }
 
+/* 
+ * Logo Spin Animation
+ * ------------------
+ */
 @keyframes logo-spin {
   from {
     transform: rotate(0deg);

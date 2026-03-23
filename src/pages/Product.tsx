@@ -3,17 +3,28 @@ import { motion } from 'framer-motion';
 import { Layers, Activity, Database, Cpu, HardDrive, Share2, FileText, AlertCircle } from 'lucide-react';
 import '../styles/Product.css';
 
+/**
+ * Represents a technical specification for the hardware.
+ */
 interface HardwareSpec {
     label: string;
     value: string;
 }
 
+/**
+ * Represents a specific feature of the software platform.
+ */
 interface SoftwareFeature {
     title: string;
     icon: ReactNode;
     desc: string;
 }
 
+/**
+ * Product Page Component
+ * Showcases the CCTT hardware specs and the integrated software platform.
+ * Emphasizes the full-stack nature of the cold chain solution.
+ */
 const Product = () => {
     const [isMobile, setIsMobile] = useState<boolean>(window.innerWidth < 768);
 

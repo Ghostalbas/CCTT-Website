@@ -1,3 +1,8 @@
+/* 
+ * How It Works Page Styles
+ * ------------------------
+ * Explains the onboarding process via a visual timeline/step-by-step guide.
+ */
 .how-it-works-page {
     padding-top: 80px;
 }
@@ -48,6 +53,11 @@
 }
 
 
+/* 
+ * Onboarding Steps Visualization
+ * ------------------------------
+ * Uses a vertical line (on desktop) to connect sequential steps.
+ */
 .steps-container {
     display: flex;
     flex-direction: column;

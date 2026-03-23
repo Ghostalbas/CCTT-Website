@@ -9,6 +9,11 @@ import HowItWorks from './pages/HowItWorks';
 import Contact from './pages/Contact';
 import Pricing from './pages/Pricing';
 
+/**
+ * Core App Component
+ * Defines the main routing structure and global wrapper.
+ * Integrates ScrollToTop for consistent UX across route changes.
+ */
 function App() {
   return (
     <Router>

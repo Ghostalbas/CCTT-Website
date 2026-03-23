@@ -5,6 +5,13 @@ interface ThemeToggleProps {
   className?: string;
 }
 
+/**
+ * ThemeToggle Component
+ * Provides a button to switch between light and dark themes.
+ * Uses ThemeContext to manage and persist the user's preference.
+ * 
+ * @param className - Optional CSS classes for additional styling
+ */
 const ThemeToggle = ({ className = "" }: ThemeToggleProps) => {
   const { theme, toggleTheme } = useTheme();
 

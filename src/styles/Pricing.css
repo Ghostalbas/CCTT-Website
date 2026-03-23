@@ -43,8 +43,8 @@
     position: relative;
     display: flex;
     flex-direction: column;
-    align-items: center;
-    text-align: center;
+    align-items: flex-start;
+    text-align: left;
 }
 
 .pricing-card.main {
@@ -65,16 +65,30 @@
     font-weight: 700;
 }
 
+.title-price-row {
+    display: flex;
+    align-items: baseline;
+    justify-content: flex-start;
+    gap: 1rem;
+    margin: 0.5rem 0;
+    width: 100%;
+}
+
 .card-header h2 {
-    font-size: 1.5rem;
-    margin: 1rem 0;
+    font-size: 1.4rem;
+    margin: 0;
+    font-weight: 700;
 }
 
 .price-tag {
-    font-size: 2.5rem;
+    font-size: 1.8rem;
     font-weight: 800;
-    color: var(--text-main);
-    margin-bottom: 0.25rem;
+    color: var(--brand-blue-dark);
+    margin: 0;
+}
+
+[data-theme='dark'] .price-tag {
+    color: var(--brand-blue-main);
 }
 
 .price-type {
@@ -87,6 +101,10 @@
     color: var(--text-muted);
     font-size: 0.9rem;
     margin-bottom: 2rem;
+    min-height: 3rem;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
 }
 
 .card-body {
@@ -114,7 +132,11 @@
     flex-shrink: 0;
 }
 
-/* Calculator Section */
+/* 
+ * Cost Calculator
+ * ---------------
+ * Glassmorphic interactive component for ROI Estimation.
+ */
 .calculator-section {
     background: var(--brand-gray-light);
 }
@@ -283,7 +305,10 @@
     font-size: 0.95rem;
 }
 
-/* Trust Grid */
+/* 
+ * Trust Factors Grid
+ * ------------------
+ */
 .trust-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -312,6 +337,10 @@
     }
 }
 
+/* 
+ * Pricing Page Mobile Overrides
+ * -----------------------------
+ */
 @media (max-width: 768px) {
     .pricing-hero {
         padding-top: 100px;
@@ -338,17 +367,20 @@
 
     .pricing-card {
         padding: 2rem 1.5rem;
+        align-items: center;
+        text-align: center;
     }
 
-    .card-header {
-        display: flex;
+    .title-price-row {
         flex-direction: column;
         align-items: center;
-        gap: 0.5rem;
+        gap: 0.25rem;
+        justify-content: center;
     }
 
     .card-header h2 {
         margin: 0.5rem 0;
+        font-size: 1.5rem;
     }
 
     .price-tag {
@@ -357,10 +389,17 @@
 
     .price-subtitle {
         margin-bottom: 1.5rem;
+        min-height: auto;
     }
 
     .feature-list {
         gap: 0.75rem;
+        align-items: flex-start;
+        text-align: left;
+    }
+
+    .feature-list li {
+        justify-content: flex-start;
     }
 
     .calculator-wrapper {
@@ -375,6 +414,7 @@
     .results-grid {
         grid-template-columns: 1fr;
         gap: 1rem;
+        text-align: center;
     }
 
     .result-card {

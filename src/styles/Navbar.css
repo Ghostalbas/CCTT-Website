@@ -1,3 +1,8 @@
+/* 
+ * Navbar Styles
+ * -------------
+ * Handles the fixed header, transparency effects on scroll, and mobile drawer.
+ */
 .navbar {
     position: fixed;
     top: 0;
@@ -102,7 +107,11 @@
 }
 
 
-/* Mobile Menu Drawer */
+/* 
+ * Mobile Navigation Drawer
+ * ------------------------
+ * Side-drawer menu that appears when the hamburger icon is toggled.
+ */
 .mobile-drawer {
     position: fixed;
     top: 0;

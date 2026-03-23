@@ -4,6 +4,9 @@ import { ShoppingCart, Truck, Settings, MessageSquare, ArrowRight, CheckCircle2 
 import { Link } from 'react-router-dom';
 import '../styles/HowItWorks.css';
 
+/**
+ * Represents a single step in the CCTT onboarding process.
+ */
 interface Step {
     title: string;
     description: string;
@@ -11,6 +14,11 @@ interface Step {
     color: string;
 }
 
+/**
+ * HowItWorks Page Component
+ * Outlines the three-stage process: Purchase, Delivery, and Setup/Support.
+ * Uses a visual timeline (on desktop) to guide potential clients.
+ */
 const HowItWorks = () => {
     const [isMobile, setIsMobile] = useState<boolean>(window.innerWidth < 768);
 

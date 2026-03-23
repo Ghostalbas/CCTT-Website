@@ -1,5 +1,8 @@
 import React, { createContext, useContext, useState, useEffect, ReactNode } from 'react';
 
+/**
+ * Defines the shape of the theme context.
+ */
 interface ThemeContextType {
   theme: string;
   toggleTheme: () => void;
@@ -7,6 +10,10 @@ interface ThemeContextType {
 
 const ThemeContext = createContext<ThemeContextType | undefined>(undefined);
 
+/**
+ * Custom hook to access the theme state and toggle function.
+ * Must be used within a ThemeProvider.
+ */
 export const useTheme = () => {
   const context = useContext(ThemeContext);
   if (!context) {
@@ -19,6 +26,11 @@ interface ThemeProviderProps {
   children: ReactNode;
 }
 
+/**
+ * ThemeProvider Component
+ * Manages the application-wide theme (light/dark).
+ * Persists user preference to localStorage and respects system color scheme.
+ */
 export const ThemeProvider = ({ children }: ThemeProviderProps) => {
   const [theme, setTheme] = useState<string>(() => {
     const savedTheme = localStorage.getItem('theme');

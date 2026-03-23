@@ -4,6 +4,9 @@ import { Mail, Phone, Send, User } from 'lucide-react';
 import emailjs from '@emailjs/browser';
 import '../styles/Contact.css';
 
+/**
+ * Structure for the inquiry form data.
+ */
 interface FormData {
     name: string;
     email: string;
@@ -11,8 +14,16 @@ interface FormData {
     message: string;
 }
 
+/**
+ * Valid states for the contact form submission process.
+ */
 type Status = 'idle' | 'sending' | 'success' | 'error';
 
+/**
+ * Contact Page Component
+ * Features a direct inquiry form powered by EmailJS and personal contact cards 
+ * for the company directors (Sebastian and Carel).
+ */
 const Contact = () => {
     const [isMobile, setIsMobile] = useState<boolean>(window.innerWidth < 768);
 
@@ -30,6 +41,10 @@ const Contact = () => {
     });
     const [status, setStatus] = useState<Status>('idle');
 
+    /**
+     * Handles form submission via EmailJS.
+     * Maps local form state to EmailJS template variables.
+     */
     const handleSubmit = async (e: FormEvent) => {
         e.preventDefault();
         setStatus('sending');
@@ -48,6 +63,7 @@ const Contact = () => {
             );
 
             setStatus('success');
+            // Reset form on success
             setFormData({ name: '', email: '', company: '', message: '' });
         } catch (error) {
             console.error('EmailJS Error:', error);

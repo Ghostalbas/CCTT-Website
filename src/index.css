@@ -1,3 +1,10 @@
+/* 
+ * Global Design System & Variables
+ * --------------------------------
+ * This file contains the root configuration for the CCTT design language,
+ * including color palettes, typography, spacing, and global utility classes.
+ */
+
 @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Inter:wght@400;500;600&display=swap');
 
 :root {
@@ -37,9 +44,15 @@
   --radius-lg: 1rem;
   --radius-full: 9999px;
 
+  /* Smooth Transitions for Theme Switching */
   transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease, background 0.3s ease;
 }
 
+/* 
+ * Dark Theme Overrides
+ * --------------------
+ * High-contrast adjustments for low-light environments.
+ */
 [data-theme='dark'] {
   --primary: var(--brand-blue-main);
   --secondary: var(--brand-blue-dark);
@@ -61,6 +74,10 @@
 
 
 
+/* 
+ * Global Structural Element Resets
+ * -------------------------------
+ */
 * {
   margin: 0;
   padding: 0;
@@ -137,7 +154,10 @@ button {
   }
 }
 
-/* Utility Classes */
+/* 
+ * Typography & Gradient Utilities
+ * -------------------------------
+ */
 .text-gradient {
   background: linear-gradient(135deg, var(--brand-blue-dark), var(--brand-blue-main));
   -webkit-background-clip: text;
@@ -173,17 +193,31 @@ button {
   }
 }
 
+/* 
+ * Responsive Breakpoints (Tablet & Mobile)
+ * --------------------------------------
+ */
 @media (max-width: 768px) {
   .section-padding {
     padding: 3rem 0;
   }
 
+  /* 
+     Mobile Text Centering:
+     Enforces a consistent centered layout for small screens.
+  */
   h1 {
     font-size: 2.5rem !important;
+    text-align: center;
   }
 
   h2 {
     font-size: 2rem !important;
+    text-align: center;
+  }
+
+  p, span, li, label {
+    text-align: center;
   }
 }
 

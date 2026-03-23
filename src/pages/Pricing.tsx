@@ -3,8 +3,15 @@ import { motion } from 'framer-motion';
 import { Calculator, CreditCard, Clock, CheckCircle2, ArrowRight, Smartphone, ShieldCheck, Zap } from 'lucide-react';
 import '../styles/Pricing.css';
 
+/**
+ * Pricing Page Component
+ * Provides a clear breakdown of hardware and hosting costs.
+ * Includes an interactive ROI/Investment calculator to estimate total costs based on unit count.
+ */
 const Pricing = () => {
+    // Current number of units selected in the calculator
     const [units, setUnits] = useState<number>(1);
+    // Responsive state for mobile layout adjustments
     const [isMobile, setIsMobile] = useState<boolean>(window.innerWidth < 768);
 
     useEffect(() => {
@@ -13,9 +20,11 @@ const Pricing = () => {
         return () => window.removeEventListener('resize', handleResize);
     }, []);
 
+    // Price constant definitions (ZAR)
     const DEVICE_COST = 1455;
     const MONTHLY_HOSTING = 58;
 
+    // Derived calculator values
     const totalBaseCost = units * DEVICE_COST;
     const totalMonthlyCost = units * MONTHLY_HOSTING;
 
@@ -48,8 +57,10 @@ const Pricing = () => {
                             >
                                 <div className="card-header">
                                     <Smartphone size={40} color="var(--brand-blue-main)" />
-                                    <h2>Hardware Cost</h2>
-                                    <p className="price-tag">R1,455.00 <span className="price-type">/ unit</span></p>
+                                    <div className="title-price-row">
+                                        <h2>Hardware Cost</h2>
+                                        <p className="price-tag">R1,455.00 <span className="price-type">/ unit</span></p>
+                                    </div>
                                     <p className="price-subtitle">Once-off purchase per device</p>
                                 </div>
                                 <div className="card-body">
@@ -68,8 +79,10 @@ const Pricing = () => {
                             >
                                 <div className="card-header">
                                     <Zap size={40} color="var(--brand-blue-main)" />
-                                    <h2>Hosting Service</h2>
-                                    <p className="price-tag">R58.00 <span className="price-type">/ month</span></p>
+                                    <div className="title-price-row">
+                                        <h2>Hosting Service</h2>
+                                        <p className="price-tag">R58.00 <span className="price-type">/ month</span></p>
+                                    </div>
                                     <p className="price-subtitle">Per unit recurring service fee</p>
                                 </div>
                                 <div className="card-body">

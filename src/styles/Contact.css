@@ -1,3 +1,8 @@
+/* 
+ * Contact Page Styles
+ * -------------------
+ * Layout for contact cards and the EmailJS-powered inquiry form.
+ */
 .contact-page {
     min-height: 100vh;
 }
@@ -164,8 +169,28 @@
     margin-top: 1rem;
 }
 
+/* 
+ * Contact Page Mobile Overrides
+ * -----------------------------
+ */
 @media (max-width: 768px) {
     .contact-headline {
         margin-top: 1rem;
+        text-align: center;
+    }
+    .contact-description {
+        text-align: left;
+    }
+    .contact-info-col {
+        text-align: left;
+    }
+    .form-wrapper {
+        text-align: left;
+    }
+    .form-group {
+        align-items: stretch;
+    }
+    .form-input, .form-textarea {
+        text-align: left;
     }
 }

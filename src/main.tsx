@@ -1,3 +1,8 @@
+/**
+ * Application Entry Point
+ * Renders the React tree into the DOM.
+ * Wraps the app in StrictMode and ThemeProvider.
+ */
 import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
 import './index.css'

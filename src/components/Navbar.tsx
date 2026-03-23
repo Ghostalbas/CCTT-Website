@@ -5,29 +5,51 @@ import { motion, AnimatePresence } from 'framer-motion';
 import ThemeToggle from './ThemeToggle';
 import '../styles/Navbar.css';
 
+/**
+ * Defines the structure for a single navigation link.
+ */
 interface NavLinkItem {
     name: string;
     path: string;
 }
 
+/**
+ * Navbar Component
+ * Handles responsive navigation, scroll-based styling, and mobile menu state.
+ * Supports theme-aware styling (dark-bg vs default) based on current page and scroll position.
+ */
 const Navbar = () => {
+    // Navbar background state (transparent vs solid)
     const [isScrolled, setIsScrolled] = useState<boolean>(false);
+    // Mobile menu open/close state
     const [isMenuOpen, setIsMenuOpen] = useState<boolean>(false);
+    
+    // Router hooks for active path detection
     const location = useLocation();
     const isHomePage = location.pathname === '/';
     const isPricingPage = location.pathname === '/pricing';
 
+    // Desktop/Mobile breakpoint state
     const [isMobile, setIsMobile] = useState<boolean>(window.innerWidth < 768);
 
     useEffect(() => {
+        /**
+         * Update scroll state to trigger navbar background change
+         */
         const handleScroll = () => {
             setIsScrolled(window.scrollY > 50);
         };
+        
+        /**
+         * Update mobile state on window resize
+         */
         const handleResize = () => {
             setIsMobile(window.innerWidth < 768);
         };
+
         window.addEventListener('scroll', handleScroll);
         window.addEventListener('resize', handleResize);
+        
         return () => {
             window.removeEventListener('scroll', handleScroll);
             window.removeEventListener('resize', handleResize);
@@ -38,6 +60,10 @@ const Navbar = () => {
     const isDarkBackground = (isHomePage || isPricingPage) && !isScrolled && !isMenuOpen && !isMobile;
     const navbarClasses = `navbar ${isScrolled ? 'scrolled' : ''} ${isMobile ? 'mobile' : ''} ${isDarkBackground ? 'dark-bg' : ''}`;
 
+    /**
+     * Navigation configuration array
+     * Used for both desktop link rendering and mobile drawer
+     */
     const navLinks: NavLinkItem[] = [
         { name: 'Home', path: '/' },
         { name: 'Product', path: '/product' },

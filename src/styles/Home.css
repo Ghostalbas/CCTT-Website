@@ -1,3 +1,8 @@
+/* 
+ * Home Page Styles
+ * ----------------
+ * Styles for the landing page including Hero, Features, and Compliance sections.
+ */
 .home-hero {
     min-height: 90vh;
     display: flex;
@@ -68,6 +73,10 @@
     box-shadow: 0 10px 20px rgba(0,0,0,0.1);
 }
 
+/* 
+ * Features Section
+ * ----------------
+ */
 .features-header {
     text-align: center;
     margin-bottom: 4rem;
@@ -112,6 +121,11 @@
 }
 
 
+/* 
+ * Compliance Section
+ * ------------------
+ * Interactive section with parallax-like background and expandable dashboard.
+ */
 .compliance-section {
     padding: 6rem 0;
     background: linear-gradient(rgba(15, 23, 42, 0.95), rgba(15, 23, 42, 0.95)), url("/images/website_dashboard_preview.png");
@@ -125,6 +139,7 @@
     align-items: center;
     gap: 4rem;
     flex-wrap: wrap;
+    flex-direction: row-reverse;
 }
 
 .compliance-text-content {
@@ -163,16 +178,21 @@
     position: relative;
 }
 
+/* 
+ * Hover Hint Badge
+ * ----------------
+ * Floating hint for the expandable dashboard image.
+ */
 .hover-hint {
     position: absolute;
-    top: -4rem;
+    top: -3rem;
     right: 0;
     background: var(--brand-blue-main);
     color: white;
-    padding: 0.75rem 2rem;
+    padding: 0.5rem 1.25rem;
     border-radius: var(--radius-full);
-    font-size: 1.2rem;
-    font-weight: 700;
+    font-size: 0.9rem;
+    font-weight: 600;
     box-shadow: 0 8px 24px rgba(0,0,0,0.3);
     z-index: 5;
     pointer-events: none;
@@ -189,4 +209,35 @@
     display: block;
     position: relative;
     transform-origin: center center;
+}
+/* 
+ * Home Page Mobile Overrides
+ * --------------------------
+ */
+@media (max-width: 768px) {
+    .feature-card {
+        text-align: center;
+    }
+    
+    .feature-icon-wrapper {
+        display: flex;
+        justify-content: center;
+    }
+
+    .hero-actions {
+        justify-content: center;
+    }
+
+    .compliance-text-content {
+        text-align: left;
+    }
+
+    .compliance-list {
+        align-items: flex-start;
+        text-align: left;
+    }
+
+    .compliance-list-item {
+        justify-content: flex-start;
+    }
 }
