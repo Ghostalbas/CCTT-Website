@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Snowflake, Mail, Phone, MapPin, Linkedin, Twitter } from 'lucide-react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import '../styles/Footer.css';
 
 /**
@@ -18,8 +18,11 @@ const Footer = () => {
         return () => window.removeEventListener('resize', handleResize);
     }, []);
 
+    const location = useLocation();
+    const isHomePage = location.pathname === '/';
+
     return (
-        <footer className={`footer ${isMobile ? 'mobile' : ''}`}>
+        <footer className={`footer ${isMobile ? 'mobile' : ''} ${isHomePage ? 'home-footer' : ''}`}>
             <div className="container">
                 <div className="footer-grid">
                     {/* Brand Section */}

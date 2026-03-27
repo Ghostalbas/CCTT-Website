@@ -354,7 +354,8 @@
  */
 @media (max-width: 768px) {
     .pricing-hero {
-        padding-top: 100px;
+        padding-top: 180px;
+        padding-bottom: 4rem;
         padding-left: 20px;
         padding-right: 20px;
     }
@@ -372,7 +373,7 @@
     .pricing-grid {
         grid-template-columns: 1fr;
         gap: 1.5rem;
-        margin-top: -2rem;
+        margin-top: 0;
         padding: 0 1rem;
     }
 
