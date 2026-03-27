@@ -13,15 +13,6 @@
     padding: 2rem 0 2rem 0;
 }
 
-/* Home page specific blending */
-.footer.home-footer {
-    padding-top: 1rem;
-}
-
-.footer.home-footer.mobile {
-    padding-top: 1.5rem;
-}
-
 /* 
  * Footer Grid Layout
  * ------------------

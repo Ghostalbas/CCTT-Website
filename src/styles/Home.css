@@ -127,9 +127,9 @@
  * Interactive section with parallax-like background and expandable dashboard.
  */
 .compliance-section {
-    padding: 6rem 0 2.5rem 0;
-    background: #0f172a;
-    color: white;
+    padding: 6rem 0;
+    background: var(--background);
+    color: var(--text-main);
 }
 
 .compliance-flex-wrapper {
@@ -147,12 +147,12 @@
 .compliance-title {
     font-size: 2.5rem;
     margin-bottom: 1.5rem;
-    color: white;
+    color: var(--brand-blue-dark);
 }
 
 .compliance-description {
     font-size: 1.1rem;
-    color: #FFFFFF;
+    color: var(--text-muted);
     margin-bottom: 2rem;
     line-height: 1.8;
 }
