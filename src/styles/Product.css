@@ -28,12 +28,14 @@
 }
 
 .product-title {
-    font-size: 3rem;
+    font-size: 3.5rem;
+    font-weight: 800;
     margin-bottom: 1.5rem;
+    letter-spacing: -0.02em;
 }
 
 .product-title.mobile {
-    font-size: 2.25rem;
+    font-size: 2.5rem;
 }
 
 .product-description {
@@ -56,7 +58,12 @@
 
 .spec-item {
     border-bottom: 1px solid var(--border);
-    padding-bottom: 0.5rem;
+    padding: 1rem 0;
+    transition: transform 0.3s ease;
+}
+
+.spec-item:hover {
+    transform: translateX(5px);
 }
 
 
@@ -78,8 +85,15 @@
 
 .product-hero-image {
     width: 100%;
-    border-radius: var(--radius-lg);
-    box-shadow: var(--shadow-lg);
+    border-radius: 48px; /* Pronounced curved edges */
+    box-shadow: 0 30px 60px -12px rgba(0, 0, 0, 0.15), 0 18px 36px -18px rgba(0, 0, 0, 0.2);
+    border: 1px solid var(--border);
+    transition: transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.3s ease;
+}
+
+.product-hero-image:hover {
+    transform: scale(1.03);
+    box-shadow: 0 40px 80px -15px rgba(0, 0, 0, 0.2);
 }
 
 /* 
@@ -124,14 +138,39 @@
 }
 
 .feature-card {
-    padding: 2rem;
+    padding: 2.5rem;
     border: 1px solid var(--border);
-    border-radius: var(--radius-md);
+    border-radius: var(--radius-lg);
     background: var(--card-bg);
-    transition: border-color 0.3s, y 0.3s, box-shadow 0.3s;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
     display: flex;
     flex-direction: column;
     height: 100%;
+    position: relative;
+    overflow: hidden;
+}
+
+.feature-card:hover {
+    border-color: var(--brand-blue-main);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+}
+
+.feature-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 4px;
+    height: 100%;
+    background: var(--brand-blue-main);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.feature-card:hover::before {
+    opacity: 1;
 }
 
 

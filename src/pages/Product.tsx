@@ -74,7 +74,7 @@ const Product = () => {
                             </div>
                         </motion.div>
                         <div className="product-hero-image-wrapper">
-                            <img src="/images/iot_sensor.png" alt="CCTT Sensor" className="product-hero-image" />
+                            <img src="/images/iot_sensor_final_v2.png" alt="CCTT Sensor" className="product-hero-image" />
                         </div>
                     </div>
                 </div>
@@ -86,14 +86,14 @@ const Product = () => {
                     <div className="platform-header">
                         <h2 className="platform-title">The Platform</h2>
                         <p className="platform-subtitle">
-                            A centralized hub for all your cold storage chain temperature data. Meet documentation requirements with ease.
+                            A centralized hub for all your cold storage chain temperature data. Maintain detailed records with ease.
                         </p>
                     </div>
 
                     <div className="platform-image-wrapper">
                         <motion.img
                             src="/images/sa_grocery_cold_storage.png"
-                            alt="Retail Compliance Monitoring"
+                            alt="Retail Temperature Monitoring"
                             className="platform-image"
                         />
                     </div>

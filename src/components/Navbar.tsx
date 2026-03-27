@@ -23,7 +23,7 @@ const Navbar = () => {
     const [isScrolled, setIsScrolled] = useState<boolean>(false);
     // Mobile menu open/close state
     const [isMenuOpen, setIsMenuOpen] = useState<boolean>(false);
-    
+
     // Router hooks for active path detection
     const location = useLocation();
     const isHomePage = location.pathname === '/';
@@ -39,7 +39,7 @@ const Navbar = () => {
         const handleScroll = () => {
             setIsScrolled(window.scrollY > 50);
         };
-        
+
         /**
          * Update mobile state on window resize
          */
@@ -49,7 +49,7 @@ const Navbar = () => {
 
         window.addEventListener('scroll', handleScroll);
         window.addEventListener('resize', handleResize);
-        
+
         return () => {
             window.removeEventListener('scroll', handleScroll);
             window.removeEventListener('resize', handleResize);
@@ -57,8 +57,8 @@ const Navbar = () => {
     }, []);
 
     // Determine state classes
-    const isDarkBackground = (isHomePage || isPricingPage) && !isScrolled && !isMenuOpen && !isMobile;
-    const navbarClasses = `navbar ${isScrolled ? 'scrolled' : ''} ${isMobile ? 'mobile' : ''} ${isDarkBackground ? 'dark-bg' : ''}`;
+    const isDarkBackground = (isHomePage || isPricingPage) && !isScrolled && !isMenuOpen;
+    const navbarClasses = `navbar ${isScrolled ? 'scrolled' : ''} ${isMobile ? 'mobile' : ''} ${isDarkBackground ? 'dark-bg' : ''} ${isMenuOpen ? 'menu-open' : ''}`;
 
     /**
      * Navigation configuration array
@@ -77,8 +77,8 @@ const Navbar = () => {
             <nav className={navbarClasses}>
                 <div className="container" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
                     <NavLink to="/" className="navbar-logo-link">
-                        <img src="/images/company_logo.png" alt="CCTT Logo" className="navbar-logo" />
-                        <span className="navbar-brand-text">CCTT</span>
+                        <img src="/images/company_logo.png" alt="Cold Cycle Tracking Technology Logo" className="navbar-logo" />
+                        <span className="navbar-brand-text">Cold Cycle Tracking Technology</span>
                     </NavLink>
 
                     {/* Desktop Links */}
@@ -122,7 +122,7 @@ const Navbar = () => {
                         className="mobile-drawer"
                     >
                         <div style={{ padding: '0.5rem', display: 'flex', justifyContent: 'flex-end', opacity: 0 }}>
-                             {/* Placeholder */}
+                            {/* Placeholder */}
                         </div>
                         {navLinks.map((link) => (
                             <NavLink

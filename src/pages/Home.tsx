@@ -40,8 +40,8 @@ const Home = () => {
             icon: <Globe size={40} color="var(--brand-blue-main)" />
         },
         {
-            title: 'Compliance Ready',
-            description: 'NIST-traceable sensors meet South African legal standards for cold chain logs.',
+            title: 'Quality Assured',
+            description: 'NIST-traceable sensors provide reliable, high-precision monitoring for your cold chain.',
             icon: <Shield size={40} color="var(--brand-blue-main)" />
         },
         {
@@ -66,7 +66,7 @@ const Home = () => {
                             South Africa's <span className="text-gradient">Cold Chain Tracking</span> Specialists
                         </h1>
                         <p className="hero-subtitle">
-                            Ensuring temperature integrity for grocery stores, suppliers, and refrigerated transport. Meet legal compliance requirements with reliable, real-time monitoring.
+                            Ensuring temperature integrity for grocery stores, suppliers, and refrigerated transport. Maintain complete visibility with reliable, real-time monitoring.
                         </p>
                         <div className="hero-actions">
                             <Link to="/contact" className="btn-primary" style={{ padding: '1rem 2rem', fontSize: '1.1rem' }}>
@@ -148,9 +148,9 @@ const Home = () => {
                             />
                         </div>
                         <div className="compliance-text-content">
-                            <h2 className="compliance-title">Compliance Made Simple</h2>
+                            <h2 className="compliance-title">Monitoring Made Simple</h2>
                             <p className="compliance-description">
-                                Fulfill South African legal requirements for temperature tracking in trucks, fridges, and freezers. Our platform provides automated logs and instant proof of integrity.
+                                Ensure temperature integrity for tracking in trucks, fridges, and freezers. Our platform provides automated logs and instant proof of history.
                             </p>
                             <ul className="compliance-list">
                                 <li className="compliance-list-item">

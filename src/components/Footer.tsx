@@ -25,15 +25,10 @@ const Footer = () => {
                     {/* Brand Section */}
                     <div>
                         <div className={`footer-brand-wrapper ${isMobile ? 'mobile' : ''}`}>
-                            <img
-                                src="/images/company_logo.png"
-                                alt="CCTT Logo"
-                                className={`footer-logo ${isMobile ? 'mobile' : ''}`}
-                            />
-                            <span className="footer-brand-text">CCTT</span>
+                            <span className="footer-brand-text">Cold Cycle Tracking Technology</span>
                         </div>
                         <p className="footer-description">
-                            Ensuring cold chain integrity across South Africa. Specializing in temperature tracking and legal compliance for grocery retail and refrigerated transport.
+                            Ensuring cold chain integrity across South Africa. Specializing in temperature tracking and integrity for grocery retail and refrigerated transport.
                         </p>
                     </div>
 

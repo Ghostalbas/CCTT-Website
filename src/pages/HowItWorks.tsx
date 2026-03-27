@@ -43,7 +43,7 @@ const HowItWorks = () => {
         },
         {
             title: 'Setup & Support',
-            description: 'Once installed, we assist with access to and setup of your customized dashboards, automated SMS/Email/WhatsApp/Voice alerts, and detailed compliance reports.',
+            description: 'Once installed, we assist with access to and setup of your customized dashboards, automated SMS/Email/WhatsApp/Voice alerts, and detailed temperature reports.',
             icon: <Settings size={40} />,
             color: 'var(--brand-blue-main)'
         }

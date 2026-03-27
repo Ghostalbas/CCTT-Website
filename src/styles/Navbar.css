@@ -13,7 +13,7 @@
     padding: 1.25rem 0;
 }
 
-.navbar.scrolled, .navbar.mobile {
+.navbar.scrolled, .navbar.menu-open {
     background: var(--glass);
     padding: 0.6rem 0;
     box-shadow: var(--shadow-md);
@@ -22,7 +22,7 @@
 
 
 
-.navbar.scrolled {
+.navbar.scrolled, .navbar.menu-open {
     backdrop-filter: blur(12px);
     -webkit-backdrop-filter: blur(12px);
 }
@@ -34,28 +34,50 @@
 }
 
 .navbar-logo {
-    height: 80px;
+    height: 60px;
     width: auto;
-    border-radius: 4px;
     object-fit: contain;
-    transform: translateY(12px);
+    transform: translateY(-2px);
+    margin-right: -10px; /* Closer together */
+    z-index: 2;
+    transition: all 0.3s ease;
 }
 
 .navbar-brand-text {
-    font-weight: 800;
-    font-size: 1.5rem;
-    transition: color 0.3s ease;
-    margin-left: -40px;
+    font-family: var(--font-primary);
+    font-weight: 700;
+    font-size: 1.3rem;
+    letter-spacing: -0.01em;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    margin-left: -15px;
     z-index: 1;
-    text-shadow: 0 2px 4px rgba(0,0,0,0.2);
+    white-space: nowrap;
+    background: linear-gradient(135deg, var(--text-main), var(--brand-blue-main));
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    filter: drop-shadow(0 2px 4px rgba(0, 163, 224, 0.1));
 }
 
 .navbar.dark-bg .navbar-brand-text {
-    color: white;
+    background: linear-gradient(135deg, #FFFFFF, var(--brand-blue-main));
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
 }
 
 .navbar:not(.dark-bg) .navbar-brand-text {
-    color: var(--text-main);
+    background: linear-gradient(135deg, var(--brand-navy), var(--brand-blue-dark));
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+[data-theme='dark'] .navbar:not(.dark-bg) .navbar-brand-text {
+    background: linear-gradient(135deg, #FFFFFF, var(--brand-blue-main));
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
 }
 
 
@@ -163,4 +185,16 @@
 @media (max-width: 768px) {
     .nav-desktop { display: none !important; }
     .nav-mobile-toggle { display: block !important; }
+    
+    .navbar-brand-text {
+        font-size: 0.9rem; /* Much smaller on mobile */
+        margin-left: -10px;
+        white-space: normal; /* Allow wrap if needed */
+        max-width: 150px; /* Limit width to prevent overlap */
+        line-height: 1.1;
+    }
+    
+    .navbar-logo {
+        height: 60px; /* Smaller logo on mobile */
+    }
 }
