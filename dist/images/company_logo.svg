@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 300 1024 422" preserveAspectRatio="xMidYMid meet">
+  <defs>
+    <filter id="chroma-key">
+      <!-- 
+        This matrix calculates alpha based on the absence of white. 
+        If R+G+B is high (white), alpha becomes low. 
+        Formula for alpha: 3 - (R+G+B). 
+        Adjusting the '3' (last column offset) to manage the threshold.
+      -->
+      <feColorMatrix type="matrix" 
+        values="1 0 0 0 0
+                0 1 0 0 0
+                0 0 1 0 0
+                -1.5 -1.5 -1.5 4.3 0" />
+    </filter>
+  </defs>
+  <image href="official_icon_raw.png" width="1024" height="1024" filter="url(#chroma-key)" />
+</svg>
