@@ -7,8 +7,6 @@ import Home from './pages/Home';
 import Product from './pages/Product';
 import HowItWorks from './pages/HowItWorks';
 import Contact from './pages/Contact';
-import Pricing from './pages/Pricing';
-
 /**
  * Core App Component
  * Defines the main routing structure and global wrapper.
@@ -26,7 +24,6 @@ function App() {
             <Route path="/product" element={<Product />} />
             <Route path="/how-it-works" element={<HowItWorks />} />
             <Route path="/contact" element={<Contact />} />
-            <Route path="/pricing" element={<Pricing />} />
           </Routes>
         </main>
         <Footer />
