@@ -21,8 +21,8 @@ const Pricing = () => {
     }, []);
 
     // Price constant definitions (ZAR)
-    const DEVICE_COST = 1699.80;
-    const MONTHLY_HOSTING = 84.00;
+    const DEVICE_COST = 1850.00;
+    const MONTHLY_HOSTING = 86.00;
 
     // Derived calculator values
     const totalBaseCost = units * DEVICE_COST;
@@ -60,7 +60,7 @@ const Pricing = () => {
                                         <Smartphone size={isMobile ? 32 : 28} />
                                         <h2>Hardware Cost</h2>
                                     </div>
-                                    <p className="price-tag">R1,699.80 <span className="price-type">/ unit</span></p>
+                                    <p className="price-tag">R1,850.00 <span className="price-type">/ unit</span></p>
                                     <p className="price-subtitle">Once-off purchase per device</p>
                                 </div>
                                 <div className="card-body">
@@ -82,7 +82,7 @@ const Pricing = () => {
                                         <Zap size={isMobile ? 32 : 28} />
                                         <h2>Hosting Service</h2>
                                     </div>
-                                    <p className="price-tag">R84.00 <span className="price-type">/ month</span></p>
+                                    <p className="price-tag">R86.00 <span className="price-type">/ month</span></p>
                                     <p className="price-subtitle">Per unit recurring service fee</p>
                                 </div>
                                 <div className="card-body">
